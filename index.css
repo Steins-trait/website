@@ -453,6 +453,7 @@ body:not(.user-is-tabbing) a:focus {
     height: 100vh;
     font-size: var(--font-size-normal);
     overflow: hidden;
+    
 }
 
 .header::before {
@@ -472,24 +473,35 @@ body:not(.user-is-tabbing) a:focus {
     z-index: -1;
 }
 
-.header__text {
+/* .header__text {
     position: relative;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translate(50%, -50%);
     z-index: 1;
 }
 
 .header__text {
+    
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translate(50%, -50%);
+    text-align: center;
+} */
+
+.header__text {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    text-align: center;
 }
 
 .header__text p {
-    margin: 1.5rem 0 3.5rem;
+    margin: 1.5rem auto 3.5rem;
     max-width: var(--container-medium-width);
     font-family: 'Jost', sans-serif;
     font-size: var(--font-size-medium);
+    text-align: center;
 }
 
 @media(max-width: 500px) {
