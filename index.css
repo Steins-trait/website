@@ -627,31 +627,86 @@ body:not(.user-is-tabbing) a:focus {
   right: 10px;
 }
 /* --------------------------------------- */
-/* ----- Clients ----- */
+/* ----- Skills ----- */
 /* --------------------------------------- */
 
-.client__logos {
+/* .skills__logos {
     display: flex;
     justify-content: space-between;
     filter: invert(100%) grayscale(100%) opacity(.8);
 }
 
-.client__logo {
+.skills__logo {
     height: 6.5rem;
     max-width: 18rem;
 }
 
+.skills__text {
+    font-size: var(--font-size-medium);
+    margin-bottom: var(--gutter-small);
+} */
+.skills {
+  padding: var(--gutter-huge) 0;
+}
+
+.skills__category {
+  margin-bottom: var(--gutter-medium);
+}
+
+.skills__category-title {
+  font-size: var(--font-size-medium);
+  margin-bottom: var(--gutter-small);
+  text-align: center;
+  color: rgb(209, 209, 209);
+}
+
+.skills__logos {
+  display: flex;
+  flex-wrap: nowrap; /* Prevents wrapping */
+  overflow-x: auto; /* Enables horizontal scrolling */
+  gap: 3rem; /* Adds spacing between items */
+  padding: 1rem 0;
+  scrollbar-width: thin; /* For Firefox: Makes the scrollbar thinner */
+  filter: invert(100%) grayscale(100%) opacity(.9); /* Inverts colors for logos */
+}
+
+.skills__logos::-webkit-scrollbar {
+  height: 8px; /* Adjust the height of the scrollbar */
+}
+
+.skills__logos::-webkit-scrollbar-thumb {
+  background: var(--pink); /* Scrollbar color */
+  border-radius: 4px;
+}
+
+.skills__item {
+  display: flex;
+  flex-direction: column; /* Stacks the logo and text vertically */
+  align-items: center; /* Centers the content horizontally */
+  text-align: center; /* Centers the text */
+  min-width: 8rem; /* Ensures items have a consistent width */
+}
+
+.skills__logo {
+  height: 6.5rem; /* Adjust the size of the logo */
+  margin-bottom: 1rem; /* Adds spacing between the logo and text */
+}
+
+.skills__text {
+  font-size: var(--font-size-small); /* Adjust the font size */
+  color: var(--black); /* Matches the text color with the theme */
+}
+
 @media(max-width: 1240px) {
-    .client__logos {
+    .skills__logos {
         overflow-x: scroll;
         padding: var(--gutter-normal);
     }
 
-    .client__logo:not(:last-of-type) {
+    .skills__logo:not(:last-of-type) {
         margin-right: var(--gutter-medium);
     }
 }
-
 /* --------------------------------------- */
 /* ----- About ----- */
 /* --------------------------------------- */
@@ -675,7 +730,7 @@ body:not(.user-is-tabbing) a:focus {
 
 @media(min-width: 901px) {
     .about__text {
-        flex: 0 0 35%;
+        flex: 0.5 0 35%;
     }
     
     .about__photo-container {
