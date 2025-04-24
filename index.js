@@ -41,3 +41,23 @@ window.addEventListener("scroll", () => {
     alterStyles(isBackToTopRendered);
   }
 });
+
+const slides = document.querySelector('.carousel__slides');
+const prevButton = document.querySelector('.carousel__button--prev');
+const nextButton = document.querySelector('.carousel__button--next');
+let currentIndex = 0;
+
+prevButton.addEventListener('click', () => {
+  currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.children.length - 1;
+  updateCarousel();
+});
+
+nextButton.addEventListener('click', () => {
+  currentIndex = (currentIndex < slides.children.length - 1) ? currentIndex + 1 : 0;
+  updateCarousel();
+});
+
+function updateCarousel() {
+  const slideWidth = slides.children[0].offsetWidth;
+  slides.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+}
