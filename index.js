@@ -61,3 +61,14 @@ function updateCarousel() {
   const slideWidth = slides.children[0].offsetWidth;
   slides.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 }
+
+// // List of IDs for certified logos
+// const certifiedLogos = ['python', 'sql'];
+
+// // Add the 'certified' class to each certified logo
+// certifiedLogos.forEach((id) => {
+//   const logo = document.getElementById(id);
+//   if (logo) {
+//     logo.classList.add('certified');
+//   }
+// });

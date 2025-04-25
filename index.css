@@ -665,9 +665,10 @@ body:not(.user-is-tabbing) a:focus {
 .skills__logos {
   display: flex;
   flex-wrap: nowrap; /* Prevents wrapping */
+  justify-content: center; /* Centers the logos */
   overflow-x: auto; /* Enables horizontal scrolling */
   gap: 3rem; /* Adds spacing between items */
-  padding: 1rem 0;
+  padding: 5rem 0;
   scrollbar-width: thin; /* For Firefox: Makes the scrollbar thinner */
   filter: invert(100%) grayscale(100%) opacity(.9); /* Inverts colors for logos */
 }
@@ -699,8 +700,27 @@ body:not(.user-is-tabbing) a:focus {
   color: var(--black); /* Matches the text color with the theme */
 }
 
-@media(max-width: 1240px) {
+@keyframes pulsate {
+    0% {
+      box-shadow: 0 0 10px 1px var(--pink);
+    }
+    50% {
+      box-shadow: 0 0 20px 11px var(--pink);
+    }
+    100% {
+      box-shadow: 0 0 10px 1px var(--pink);
+    }
+  }
+  
+  .certified {
+    box-shadow: 0 0 30px 15px var(--pink);
+    border-radius: 10px;
+    animation: pulsate 2.5s infinite; /* Adds a pulsating animation */
+  }
+
+@media(max-width: 830px) {
     .skills__logos {
+        justify-content: flex-start;
         overflow-x: scroll;
         padding: var(--gutter-normal);
     }
