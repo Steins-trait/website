@@ -904,3 +904,20 @@ body:not(.user-is-tabbing) a:focus {
     transform: rotate(-49deg) translate(5px, -5px);
   }
   
+
+  @media (min-width: 671px) {
+    .nav__toggle {
+      display: none !important; /* force-hide on larger screens */
+    }
+  
+    .nav__items {
+      visibility: visible !important;
+      opacity: 1 !important;
+      transform: none !important;
+      position: static !important;
+      flex-direction: row !important;
+      background: none !important;
+      padding: 0 !important;
+    }
+  }
+  
