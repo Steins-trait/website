@@ -386,6 +386,7 @@ body:not(.user-is-tabbing) a:focus {
     display: flex;
     justify-content: flex-end;
     padding: var(--gutter-normal) 0;
+    position: relative
 }
 
 .nav__items {
@@ -405,7 +406,7 @@ body:not(.user-is-tabbing) a:focus {
 
 @media(max-width: 400px) {
     .nav__item:not(:last-child) {
-        margin-right: var(--gutter-normal);
+        margin-right: var(--gutter);
     }
 }
 
@@ -418,6 +419,7 @@ body:not(.user-is-tabbing) a:focus {
 .nav__link {
     position: relative;
     display: inline-block;
+    width: 100%;
     padding: 1rem 0;
     text-decoration: none;
     color: inherit;
@@ -830,24 +832,37 @@ body:not(.user-is-tabbing) a:focus {
     }
   
     .nav__items {
-      display: none;
+      visibility: hidden;
       flex-direction: column;
-      align-items: flex-end;
-      background: var(--black);
+      align-items: center;
+      background: rgba(0,0,0,0.75);
       width: 100%;
       padding: 1rem 2rem;
       position: absolute;
       top: 100%;
       right: 0;
       z-index: 1000;
+      opacity: 0;
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      /* border: 1px solid var(--pink); */
     }
   
     .nav__items.nav__items--visible {
-      display: flex;
+      visibility: visible;
+      opacity: 1;
+      transform: scaleY(1);
     }
   
     .nav__item {
+      width: 100%;
+      text-align: center;
       margin: 1rem 0;
+    }
+
+    .nav__item:not(:last-child) {
+        margin-right: 0;
     }
   }
   

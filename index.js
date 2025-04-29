@@ -42,47 +42,15 @@ window.addEventListener("scroll", () => {
   }
 });
 
-const slides = document.querySelector('.carousel__slides');
-const prevButton = document.querySelector('.carousel__button--prev');
-const nextButton = document.querySelector('.carousel__button--next');
-let currentIndex = 0;
+const navToggle = document.querySelector('.nav__toggle');
+const navItems = document.querySelector('.nav__items');
 
-prevButton.addEventListener('click', () => {
-  currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.children.length - 1;
-  updateCarousel();
+navToggle.addEventListener('click', () => {
+    navItems.classList.toggle('nav__items--visible');
 });
 
-nextButton.addEventListener('click', () => {
-  currentIndex = (currentIndex < slides.children.length - 1) ? currentIndex + 1 : 0;
-  updateCarousel();
+
+navToggle.addEventListener('click', () => {
+  console.log("Hamburger clicked!");
+  navItems.classList.toggle('nav__items--open');
 });
-
-function updateCarousel() {
-  const slideWidth = slides.children[0].offsetWidth;
-  slides.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-}
-
-// // List of IDs for certified logos
-// const certifiedLogos = ['python', 'sql'];
-
-// // Add the 'certified' class to each certified logo
-// certifiedLogos.forEach((id) => {
-//   const logo = document.getElementById(id);
-//   if (logo) {
-//     logo.classList.add('certified');
-//   }
-// });
-
-document.addEventListener('click', () => {
-  const navToggle = document.getElementById('nav-toggle');
-  const navItems = document.getElementById('nav-items');
-
-  if (navToggle && navItems) {
-    navToggle.addEventListener('click', () => {
-      navItems.classList.toggle('nav__items--visible');
-    });
-  } else {
-    console.warn('nav-toggle or nav-items not found in the DOM');
-  }
-});
-
