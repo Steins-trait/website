@@ -72,3 +72,17 @@ function updateCarousel() {
 //     logo.classList.add('certified');
 //   }
 // });
+
+document.addEventListener('click', () => {
+  const navToggle = document.getElementById('nav-toggle');
+  const navItems = document.getElementById('nav-items');
+
+  if (navToggle && navItems) {
+    navToggle.addEventListener('click', () => {
+      navItems.classList.toggle('nav__items--visible');
+    });
+  } else {
+    console.warn('nav-toggle or nav-items not found in the DOM');
+  }
+});
+
