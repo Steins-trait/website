@@ -836,7 +836,7 @@ body:not(.user-is-tabbing) a:focus {
       flex-direction: column;
       align-items: center;
       background: rgba(0,0,0,0.85);
-      width: 100%;
+      width: 50%;
       padding: 1rem 2rem;
       position: absolute;
       top: 100%;
@@ -857,12 +857,50 @@ body:not(.user-is-tabbing) a:focus {
   
     .nav__item {
       width: 100%;
-      text-align: center;
+      text-align: right;
       margin: 1rem 0;
     }
 
     .nav__item:not(:last-child) {
         margin-right: 0;
     }
+  }
+  
+
+
+  .nav__toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px; /* Add space between bars */
+    width: 60px;
+    height: 40px; /* Increase height for better spacing */
+    cursor: pointer;
+    z-index: 1001;
+    padding: 1rem;
+    overflow: visible;
+  }
+  
+  
+  .nav__toggle .bar {
+    height: 3px;
+    width: 100%;
+    background-color: var(--white);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+  
+  /* Animate to X */
+  .nav__toggle--open .bar:nth-child(1) {
+    transform: rotate(49deg) translate(7px, 7px);
+  }
+  
+  .nav__toggle--open .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .nav__toggle--open .bar:nth-child(3) {
+    transform: rotate(-49deg) translate(5px, -5px);
   }
   

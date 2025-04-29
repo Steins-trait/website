@@ -47,6 +47,7 @@ const navItems = document.querySelector('.nav__items');
 
 navToggle.addEventListener('click', () => {
     navItems.classList.toggle('nav__items--visible');
+    navToggle.classList.toggle('nav__toggle--open');
 });
 
 
