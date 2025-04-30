@@ -55,3 +55,34 @@ navToggle.addEventListener('click', () => {
   console.log("Hamburger clicked!");
   navItems.classList.toggle('nav__items--open');
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('crimmi-modal');
+  const modalImage = document.getElementById('modal-image');
+  const modalClose = document.querySelector('.modal__close');
+  const projectImage = document.querySelector('[data-modal="crimmi-modal"]');
+
+  // Open modal when the image is clicked
+  projectImage.addEventListener('click', () => {
+    modal.style.display = 'flex';
+    modalImage.src = projectImage.querySelector('img').src; // Set the modal image source
+  });
+
+  // Close modal when the close button is clicked
+  modalClose.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  // Close modal when clicking outside the image
+  modal.addEventListener('click', (e) => {
+      modal.style.display = 'none';
+    });
+
+  // Close modal when pressing the Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      modal.style.display = 'none';
+    }
+  });
+});
