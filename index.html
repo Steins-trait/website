@@ -20,6 +20,10 @@
         <a href="/blog/" class="btn">Blog</a>
         <a href="/hobbies/" class="btn">Hobbies</a>
       </div>
+      <div class="scroll-cue">
+        <span class="scroll-arrow">&#x25BC;</span> <!-- Down arrow -->
+      </div>
+      
     </section>
 
 
@@ -54,5 +58,45 @@
       </div>
     </section>
   </main>
+
+  <!-- ***** Footer ***** -->
+
+  <footer role="contentinfo" class="footer">
+    <div class="row">
+      <ul class="footer__social-links">
+          </a>
+        </li>
+        <li class="footer__social-link-item">
+          <a href="https://github.com/Steins-trait" target="_blank" title="Link to Github Profile">
+            <img src="portfolio/images/github.svg" class="footer__social-image" alt="Github">
+          </a>
+        </li>
+        <li class="footer__social-link-item">
+          <a href="https://instagram.com/abbys.mal/" target="_blank" title="Link to Instragram Profile">
+            <img src="portfolio/images/instagram.png" class="footer__social-image" alt="Instagram">
+          </a>
+        </li>
+        <li class="footer__social-link-item">
+          <a href="https://www.linkedin.com/in/abbasamirza/" target="_blank" title="Link to Linkedin Profile">
+            <img src="portfolio/images/linkedin.svg" title="Link to Linkedin Profile" class="footer__social-image" alt="Linkedin">
+          </a>
+        </li>
+      </ul>
+
+      
+    </div>
+  </footer>
+  <script>
+    const scrollCue = document.querySelector('.scroll-cue');
+  
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 70) {
+        scrollCue.classList.add('scroll-cue--hidden');
+      } else {
+        scrollCue.classList.remove('scroll-cue--hidden');
+      }
+    });
+  </script>
+  
 </body>
 </html>
