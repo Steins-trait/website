@@ -30,8 +30,8 @@ body {
   background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,1)),
               url('/portfolio/images/myheader.jpg') no-repeat center center;
   background-size: cover;
-  background-position: center;
-  filter: blur(8px);
+  background-position: right;
+  filter: blur(7px);
   z-index: -1;
 }
   
@@ -39,13 +39,14 @@ body {
     font-size: 5rem;
     margin-bottom: 1rem;
     animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.2s;
   }
   
   .hero p {
     font-size: 2rem;
     margin-bottom: 4rem;
     animation: fadeInUp 0.8s ease-out forwards;
-    animation-delay: 0.2s;
+    animation-delay: 0.4s;
   }
   
   .buttons .btn {
@@ -55,21 +56,49 @@ body {
     color: white;
     text-decoration: none;
     border-radius: 5px;
-    transition: background 0.3s ease;
+    transition: all 0.5s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 
   }
   
   .buttons .btn:hover {
     background-color: #ff5a78;
+    transform: translateY(-3px); /* Slight lift effect on hover */
+    box-shadow: 0 4px 8px rgba(255, 50, 88, 0.3); /* Subtle shadow on hover */
   }
   
+  .buttons .btn:active {
+    transform: translateY(-1px);
+  }
+
+  .buttons .btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .buttons .btn:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
   .buttons {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 1rem; /* adds spacing without using margin */
     animation: fadeInUp 0.8s ease-out forwards;
-    animation-delay: 0.4s;
+    animation-delay: 0.6s;
     opacity: 0;
   }
   
