@@ -1,0 +1,281 @@
+/* ================================
+   Fonts
+================================== */
+@font-face {
+    font-family: 'Hk Grotesk';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/HKGrotesk-Regular.woff') format('woff');
+  }
+  
+  @font-face {
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/Jost-Regular.ttf') format('woff');
+  }
+  
+  /* ================================
+     Root Variables
+  ================================== */
+  :root {
+    --font-size-small: 1.8rem;
+    --font-size-normal: 2.2rem;
+    --font-size-medium: 2.8rem;
+    --font-size-medium-1: 3.6rem;
+    --font-size-large: 5.5rem;
+    --font-size-huge: 7.5rem;
+    --font-stack: 'Hk Grotesk', sans-serif;
+  
+    --line-height-normal: 1.7;
+    --line-height-small: 1.2;
+  
+    --black: #000;
+    --pink: #ff3258;
+    --white: #f0e9f2;
+    --white-1: #e5e5e6da;
+  
+    --container-max-width: 1180px;
+    --container-normal-width: 800px;
+    --container-medium-width: 700px; 
+    --container-small-width: 500px;
+  
+    --gutter-huge: 12rem;
+    --gutter-medium: 6rem;
+    --gutter-normal: 3rem;
+    --gutter-small-1: 2.5rem;
+    --gutter-small: 2rem;
+  
+    --border-light: 1px solid rgb(36, 35, 35);
+  }
+  
+  /* ================================
+     Reset & Base Styles
+  ================================== */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+  }
+  
+  html {
+    font-size: 62.5%; /* 1rem = 10px */
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+  
+  @media (max-width: 1000px) {
+    html {
+      font-size: 52%;
+    }
+  }
+  
+  body {
+    font-size: var(--font-size-small);
+    font-family: var(--font-stack);
+    font-weight: 400;
+    color: var(--white-1);
+    background: var(--black);
+    line-height: var(--line-height-normal);
+    overflow-x: hidden;
+  }
+  
+  img {
+    object-fit: contain;
+    max-width: 100%;
+  }
+  
+  /* ================================
+     Layout Containers
+  ================================== */
+  .row {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+  }
+  
+  @media (max-width: 1340px) {
+    .row {
+      max-width: 1100px;
+    }
+  }
+  
+  @media (max-width: 1240px) {
+    .row {
+      padding: 0 var(--gutter-medium);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .row {
+      padding: 0 var(--gutter-small);
+    }
+  }
+  
+  section {
+    padding: var(--gutter-huge) 0;
+    border-bottom: var(--border-light);
+  }
+  
+  /* ================================
+     Typography
+  ================================== */
+  h1, h2, h3 {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    line-height: var(--line-height-small);
+    color: var(--white);
+  }
+  
+  h2 {
+    font-size: var(--font-size-large);
+    margin-bottom: var(--gutter-medium);
+  }
+  
+  h2::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 10rem;
+    background: var(--pink);
+    margin: var(--gutter-small) 0;
+  }
+  
+  h3 {
+    font-size: var(--font-size-medium-1);
+    margin-bottom: var(--gutter-small);
+  }
+  
+  .heading-primary {
+    font-size: var(--font-size-huge);
+    line-height: 1;
+  }
+  
+  p {
+    margin: var(--gutter-small-1) 0;
+  }
+  
+  @media (max-width: 900px) {
+    p {
+      max-width: var(--container-small-width);
+    }
+  
+    .heading-primary {
+      font-size: 6.5rem;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .heading-primary {
+      font-size: var(--font-size-large);
+    }
+  
+    h2 {
+      font-size: var(--font-size-medium-1);
+    }
+  
+    h3 {
+      font-size: var(--font-size-medium);
+    }
+  }
+  
+  /* ================================
+     Links & Buttons
+  ================================== */
+  a {
+    color: var(--white);
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+    transition: all 0.2s;
+    outline: 2px solid transparent;
+  }
+  
+  a:focus, button:focus {
+    outline: 2px solid var(--pink);
+  }
+  
+  body:not(.user-is-tabbing) a:focus,
+  body:not(.user-is-tabbing) button:focus {
+    outline: none;
+  }
+  
+  .link:hover {
+    color: var(--pink);
+  }
+  
+  /* Button Base */
+  .btn {
+    position: relative;
+    display: inline-block;
+    padding: 1rem 4.2rem;
+    border: 1px solid var(--pink);
+    font-weight: 400;
+    cursor: pointer;
+    z-index: 1;
+    color: inherit;
+    background: transparent;
+    transition: all 0.2s;
+  }
+  
+  .btn::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0; left: 0; right: 100%;
+    height: 100%;
+    background: var(--white);
+    z-index: -1;
+    transition: all 0.2s cubic-bezier(1, 0.68, 0.16, 0.9);
+  }
+  
+  .btn:hover::after,
+  .btn:focus::after {
+    right: 0;
+    background: var(--pink);
+  }
+  
+  /* Solid Pink Button */
+  .btn--pink {
+    background: var(--pink);
+  }
+  
+  .btn--pink::after {
+    display: none;
+  }
+  
+  .btn--pink:hover,
+  .btn--pink:focus {
+    background: transparent;
+  }
+  
+  /* Link Text with Animated Underline */
+  .link__text {
+    position: relative;
+    padding: .6rem;
+    border-bottom: 1px solid var(--pink);
+    display: inline-block;
+  }
+  
+  .link__text::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 100%;
+    height: 100%;
+    background: var(--white);
+    z-index: -1;
+    transition: all 0.2s cubic-bezier(1, 0.68, 0.16, 0.9);
+  }
+  
+  .link__text:hover::after,
+  .link__text:focus::after {
+    right: 0;
+    background: var(--pink);
+  }
+  
+  .link__text span {
+    padding-left: 1rem;
+    font-family: sans-serif;
+  }
+  
