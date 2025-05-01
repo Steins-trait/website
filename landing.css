@@ -8,6 +8,7 @@ body {
     align-items: center;
     height: 100vh;
     text-align: center;
+    padding: 0 1rem;
   }
   
   .hero h1 {
@@ -32,5 +33,26 @@ body {
   
   .buttons .btn:hover {
     background-color: #ff5a78;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem; /* adds spacing without using margin */
+  }
+  
+  /* Stack buttons vertically on narrow screens */
+  @media (max-width: 470px) {
+    .buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .buttons .btn {
+      width: 100%;
+      max-width: 100px;
+      text-align: center;
+    }
   }
   

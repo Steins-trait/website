@@ -1,3 +1,8 @@
+html {
+    font-size: 62.5%;  /* Makes 1rem = 10px, just like in your portfolio */
+  }
+  
+
 body {
     font-family: 'Jost', sans-serif;
     background: #000;
