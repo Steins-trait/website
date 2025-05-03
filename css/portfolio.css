@@ -54,7 +54,7 @@
 
 .header__text h1 {
   animation: fadeInUp 0.8s ease-out forwards;
-  animation-dealy: 0.2s;
+  animation-delay: 0.2s;
 }
 
 .header__text h1,
