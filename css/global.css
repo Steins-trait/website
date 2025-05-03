@@ -298,6 +298,11 @@
   
   .footer__social-image {
     height: 4rem;
+    transition: all 0.3s;
+  }
+
+  .footer__social-image:hover {
+    transform: scale(1.2);
   }
   
   .footer__github-buttons {

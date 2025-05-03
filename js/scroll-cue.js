@@ -1,9 +1,15 @@
 const scrollCue = document.querySelector('.scroll-cue');
-  
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 70) {
-        scrollCue.classList.add('scroll-cue--hidden');
-      } else {
-        scrollCue.classList.remove('scroll-cue--hidden');
-      }
-    });
+
+// Position it at the bottom of the initial viewport
+window.addEventListener('load', () => {
+  const initialOffset = window.innerHeight * 0.8; // 90% of viewport height
+  scrollCue.style.top = `${initialOffset}px`;
+});
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 80) {
+    scrollCue.classList.add('scroll-cue--hidden');
+  } else {
+    scrollCue.classList.remove('scroll-cue--hidden');
+  }
+});
