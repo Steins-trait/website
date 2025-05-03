@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/css/global.css">
   <link rel="stylesheet" href="/css/portfolio.css" />
-  <link rel="shortcut icon" type="image/webp" href="assets/images/weblogo.webp" />
+  <link rel="shortcut icon" type="image/webp" href="/assets/images/weblogo.webp" />
   <link rel="stylesheet" href="/css/nav.css" />
   <link rel="stylesheet" href="/css/scrollcue.css"/>
 
@@ -251,13 +251,16 @@
                   Visit Repo <span>&rarr;</span>
                 </a>
                 <a href="https://github.com/Steins-trait/portfolio" target="_blank">
+                  
                   <img src="/assets/images/github.svg" class="work__code" title="View Source Code" alt="GitHub">
                 </a>
               </div>
             </div>
-            <div class="work__image-box">
-              <img src="/assets//images/portfolio.png" class="work__image" alt="Project 3" />
-            </div>
+            <video class="work__image-box" autoplay muted loop playsinline poster="/assets/images/website-demo-fallback.png">
+              <source src="/assets/images/website-demo.webm" type="video/webm" class="work__image" alt="website-demo" />
+              <img src="/assets/images/website-demo-fallback.png" alt="website-img"
+              Your browser does not support the video tag. />
+            </video>
           </div>
         </div>
       </div>
