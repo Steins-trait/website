@@ -85,6 +85,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 25rem;
+
 }
 
 @media(max-width: 900px) {
@@ -117,6 +118,15 @@
   transition: all 0.3s;
 }
 
+.work__image {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+}
+
 .work__code:hover {
   transform: scale(1.2);
 }
@@ -135,8 +145,16 @@
   .work__image-box {
     flex: 1;
     margin-left: 10rem;
+    max-width: 100%;
+    width: 100%;
+    
   }
 }
+
+.work__video {
+
+}
+
 
 /* ==========================================
    SKILLS & CERTIFICATIONS
