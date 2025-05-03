@@ -26,7 +26,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.101), rgb(0, 0, 0)), url(/portfolio/images/myheader.jpg) no-repeat center center;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.101), rgb(0, 0, 0)), url(/assets/myheader.jpg) no-repeat center center;
   background-size: cover;
   background-position: center;
   background-attachment: scroll;
