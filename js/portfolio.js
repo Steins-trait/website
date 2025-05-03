@@ -45,16 +45,16 @@ window.addEventListener("scroll", () => {
 const navToggle = document.querySelector('.nav__toggle');
 const navItems = document.querySelector('.nav__items');
 
-navToggle.addEventListener('click', () => {
-    navItems.classList.toggle('nav__items--visible');
-    navToggle.classList.toggle('nav__toggle--open');
-});
+// navToggle.addEventListener('click', () => {
+//     navItems.classList.toggle('nav__items--visible');
+//     navToggle.classList.toggle('nav__toggle--open');
+// });
 
 
-navToggle.addEventListener('click', () => {
-  console.log("Hamburger clicked!");
-  navItems.classList.toggle('nav__items--open');
-});
+// navToggle.addEventListener('click', () => {
+//   console.log("Hamburger clicked!");
+//   navItems.classList.toggle('nav__items--open');
+// });
 
 
 document.addEventListener('DOMContentLoaded', () => {
