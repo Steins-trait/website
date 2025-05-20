@@ -1,0 +1,13 @@
+.store {
+  background-color: #00000046;
+  padding: 20px;
+}
+
+.store-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+

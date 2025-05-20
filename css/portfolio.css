@@ -174,15 +174,31 @@
   color: rgb(209, 209, 209);
 }
 
+.skills__logo-wrapper {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+
+}
+
 .skills__logos {
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
   overflow-x: auto;
   gap: 3rem;
-  padding: 5rem 0;
+  padding: 2rem 1rem;
   scrollbar-width: thin;
   filter: invert(100%) grayscale(100%) opacity(.9);
+  margin: 0 auto;
+  max-width: 100%;
+  scroll-behavior: smooth;
 }
 
 .skills__logos::-webkit-scrollbar {
@@ -191,6 +207,9 @@
 .skills__logos::-webkit-scrollbar-thumb {
   background: var(--pink);
   border-radius: 4px;
+}
+.skills__logos::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .skills__item {
@@ -211,17 +230,6 @@
   color: var(--black);
 }
 
-@keyframes pulsate {
-  0% { box-shadow: 0 0 10px 1px var(--pink); }
-  50% { box-shadow: 0 0 20px 11px var(--pink); }
-  100% { box-shadow: 0 0 10px 1px var(--pink); }
-}
-
-.certified {
-  box-shadow: 0 0 30px 15px var(--pink);
-  border-radius: 10px;
-  animation: pulsate 2.5s infinite;
-}
 
 /* Certifications */
 .skills__certifications {
