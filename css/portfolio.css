@@ -184,7 +184,6 @@
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
-
 }
 
 .skills__logos {
@@ -193,12 +192,17 @@
   justify-content: center;
   overflow-x: auto;
   gap: 3rem;
-  padding: 2rem 1rem;
+  /* padding: 2rem 1rem; */
   scrollbar-width: thin;
   filter: invert(100%) grayscale(100%) opacity(.9);
   margin: 0 auto;
   max-width: 100%;
   scroll-behavior: smooth;
+}
+
+/* If the skills overflow, left justify automatically */
+.skills__logo-wrapper:has(.skills__logos:overflow-x) .skills__logos {
+  justify-content: flex-start;
 }
 
 .skills__logos::-webkit-scrollbar {
@@ -448,4 +452,75 @@
 .back-to-top__image:hover {
   transform: scale(1.2);
 
+}
+
+/* Work Experience */
+
+.work-experience .resume__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.resume__card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid #444;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s cubic-bezier(.4,2,.3,1), box-shadow 0.2s
+}
+
+.resume__card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  transition: transform 0.2s cubic bezier(.4,2,.3,1), box-shadow 0.2s;
+}
+
+.resume__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.resume__job-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--accent-color, #e65a22);
+}
+
+.resume__meta {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  margin-top: -2rem;
+}
+.resume__company, .resume__dates {
+  font-size: 1.5rem;
+  color: #aaa;
+}
+
+.resume__details {
+  margin: 0 0 1rem 1.5rem;
+  padding: 0;
+  list-style: disc;
+  color: var(--white, #fff);
+}
+
+.resume__skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.resume__skills span {
+  background: #222;
+  color: #fff;
+  border-radius: 6px;
+  padding: 0.3rem 0.7rem;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
 }
