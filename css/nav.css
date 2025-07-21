@@ -6,9 +6,15 @@
     padding: 1rem 2rem;
     border-bottom: 1px solid #333;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    width: 100vw;
     z-index: 999;
+  }
+
+  .main-content {
+    padding-top: 45px;
   }
   
   .main-nav__items {
