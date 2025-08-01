@@ -1,0 +1,23 @@
+.header {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+header h2::after {
+  content: "";
+  display: block;
+  width: 10rem;
+  height: 3px;
+  background: var(--pink);
+  margin: 1rem auto 0 auto;
+  border-radius: 2px;
+}
+
+
+.blog__hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}

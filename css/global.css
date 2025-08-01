@@ -78,11 +78,18 @@
     background: var(--black);
     line-height: var(--line-height-normal);
     overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
   
   img {
     object-fit: contain;
     max-width: 100%;
+  }
+
+  html, body {
+    height: 100%;
   }
   
   /* ================================
@@ -154,7 +161,7 @@
     margin: var(--gutter-small-1) 0;
   }
   
-  @media (max-width: 900px) {
+  /* @media (max-width: 900px) {
     p {
       max-width: var(--container-small-width);
     }
@@ -162,7 +169,7 @@
     .heading-primary {
       font-size: 6.5rem;
     }
-  }
+  } */
   
   @media (max-width: 500px) {
     .heading-primary {
@@ -280,9 +287,21 @@
   }
   
 
+/* ---- FOOTER ---- */
+
   .footer {
     text-align: center;
     padding: var(--gutter-medium) 0 var(--gutter-normal);
+  }
+
+  #footer-container, .footer {
+    margin-top: auto;
+  }
+
+  .footer__text {
+  text-align: center;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
   }
   
   .footer__social-links {
@@ -315,6 +334,3 @@
     width: 84px;
     transform: translateY(3px);
   }
-/* ----------------------------
-         ScrollBar Behavior 
-  ------------------------------*/

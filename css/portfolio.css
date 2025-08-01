@@ -3,11 +3,11 @@
 ========================================== */
 .header {
   position: relative;
-
   height: 100vh;
   font-size: var(--font-size-normal);
   overflow: hidden;
 }
+
 
 .header__buttons {
   display: flex;
@@ -77,14 +77,16 @@
   }
 }
 
-
+.main-content {
+  flex: 1 0 auto;
+}
 /* ==========================================
    WORK SECTION
 ========================================== */
 .work__box {
   display: flex;
   align-items: center;
-  margin-bottom: 25rem;
+  margin-bottom: 15rem;
 
 }
 
@@ -95,6 +97,10 @@
     margin-bottom: 20rem;
     
   }
+}
+
+.work__title h3 {
+  color: #dd901b
 }
 
 .work__text {
@@ -149,10 +155,6 @@
     width: 100%;
     
   }
-}
-
-.work__video {
-
 }
 
 
@@ -236,6 +238,7 @@
 
 
 /* Certifications */
+
 .skills__certifications {
   margin-top: var(--gutter-small);
 }
@@ -343,7 +346,12 @@
   max-width: var(--container-medium-width);
 }
 
-
+.qualifications .row > p {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
 
 /* ==========================================
    MODALS, IMAGE ZOOM, BACK TO TOP
@@ -460,7 +468,6 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  margin-top: 2rem;
 }
 
 .resume__card {
