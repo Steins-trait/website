@@ -24,8 +24,6 @@
   </div>
 
   <article class="post__content">
-
-    <!-- Top navigation — populated by blog-nav.js -->
     <nav class="post__nav" id="post-nav-top"></nav>
 
     <header class="post__header">
@@ -56,6 +54,25 @@
         without tearing up the floor plan.
       </p>
 
+      <!--
+        IMAGE: The full SolidWorks cell design render showing the robot arm, vibratory tumbler,
+        lathe, and threader in the same frame (page 11 of the final report PDF, Figure 4).
+        Export from SolidWorks and save as: /assets/images/crimmi-cell-design.png
+      -->
+      <figure class="post__figure">
+        <img
+          src="/assets/images/crimmi-cell-design.png"
+          alt="SolidWorks 3D model of the full CRIMMI automated cell showing robot arm, vibratory feeder, Okuma lathe, and threader"
+          class="post__figure-img"
+        />
+        <figcaption class="post__figure-caption">
+          Full cell design modeled in SolidWorks. From left: the Hoosier Feeder vibratory tumbler,
+          the UR-20 cobot arm on its stand, the Okuma LB15 lathe, and the threading machine.
+          Everything had to fit in the existing floor footprint.
+        </figcaption>
+      </figure>
+      <!-- TODO: export the cell design render from SolidWorks and save as crimmi-cell-design.png -->
+
       <h3>The end-effector is the actual problem</h3>
 
       <p>
@@ -77,6 +94,25 @@
         fixed the geometry before we ever printed the final version, which saved a real headache.
       </p>
 
+      <!--
+        IMAGE: The three end-effector design iterations side by side in SolidWorks,
+        or the final machined steel end-effector photo (page 9 of final report, Figure 2).
+        Save as: /assets/images/crimmi-end-effector.png
+      -->
+      <figure class="post__figure">
+        <img
+          src="/assets/images/crimmi-end-effector.png"
+          alt="Three versions of the custom end-effector design, from initial 3D-printed prototype to final machined steel"
+          class="post__figure-img"
+        />
+        <figcaption class="post__figure-caption">
+          End-effector design progression. Version 1 and 2 were 3D printed in ABS for rapid
+          prototype testing. Version 3 is the final machined structural steel design after the
+          ANSYS analysis confirmed ABS wouldn't survive the expected cycle count.
+        </figcaption>
+      </figure>
+      <!-- TODO: export/photograph the end-effector designs and save as crimmi-end-effector.png -->
+
       <div class="post__callout">
         The full system was: Hoosier Feeder vibratory tumbler to orient the bolts, robot picks
         from the tumbler, loads the lathe collet, closes the door, waits for machining, grabs
@@ -95,6 +131,25 @@
         to work with. We solved for equivalent Von Mises stress and total deformation across
         18,830 cycles at a max force of 40N.
       </p>
+
+      <!--
+        IMAGE: The ANSYS FEA results — equivalent stress and total deformation contour maps
+        for the steel end-effector (Figure 6, page 15 of final report).
+        Screenshot from ANSYS and save as: /assets/images/crimmi-fea-results.png
+      -->
+      <figure class="post__figure">
+        <img
+          src="/assets/images/crimmi-fea-results.png"
+          alt="ANSYS FEA results showing Von Mises equivalent stress and total deformation on the steel end-effector"
+          class="post__figure-img"
+        />
+        <figcaption class="post__figure-caption">
+          ANSYS Workbench FEA results for the steel end-effector at 40N load. Top: equivalent
+          Von Mises stress (max 13.366 MPa, well below steel's 250 MPa yield). Bottom: total
+          deformation (max 0.00244 mm across 18,830 cycles).
+        </figcaption>
+      </figure>
+      <!-- TODO: screenshot the ANSYS results and save as crimmi-fea-results.png -->
 
       <p>
         We tested both ABS and structural steel. ABS deflected 0.15196mm with an equivalent
@@ -149,9 +204,7 @@
 
     </div>
 
-    <!-- Bottom navigation — populated by blog-nav.js -->
     <nav class="post__nav post__nav--bottom" id="post-nav-bottom"></nav>
-
   </article>
 
   <div id="footer-container"></div>

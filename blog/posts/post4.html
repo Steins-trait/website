@@ -1,68 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Two Designs for a Spine Surgery Challenge | Abbas Mirza</title>
-<link rel="stylesheet" href="/css/global.css" />
-<link rel="stylesheet" href="/css/nav.css" />
-<link rel="stylesheet" href="/css/blog.css" />
-<link rel="shortcut icon" type="image/webp" href="/assets/images/weblogo.webp" />
-<meta name="description" content="How I designed two competing expandable height trial instruments for a Globus Medical engineering challenge, and what I learned doing it." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Two Designs for a Spine Surgery Challenge | Abbas Mirza</title>
+  <link rel="stylesheet" href="/css/global.css" />
+  <link rel="stylesheet" href="/css/nav.css" />
+  <link rel="stylesheet" href="/css/blog.css" />
+  <link rel="shortcut icon" type="image/webp" href="/assets/images/weblogo.webp" />
+  <meta name="description" content="How I designed two competing expandable height trial instruments for a Globus Medical engineering challenge, and what I learned doing it." />
 </head>
 <body>
-<div id="nav-container"></div>
-<script src="/js/nav-loader.js" defer></script>
+  <div id="nav-container"></div>
+  <script src="/js/nav-loader.js" defer></script>
 
-<div class="post__featured">
+  <div class="post__featured">
     <img
-    src="/assets/images/height-trial.png"
-    alt="Fusion 360 CAD render of the dual-layer scissor jack height trial design"
-    class="post__featured-img"
+      src="/assets/images/combined_distractors.gif"
+      alt="Animated GIF showing both the scissor jack and hydraulic plunger designs expanding"
+      class="post__featured-img"
     />
     <div class="post__featured-overlay"></div>
-</div>
+  </div>
 
-<article class="post__content">
-
-    <!-- Top navigation — populated by blog-nav.js -->
+  <article class="post__content">
     <nav class="post__nav" id="post-nav-top"></nav>
 
-    
     <header class="post__header">
-    <span class="post__tag">Medical Device Design</span>
-    
-    <h1 class="post__title">Two Designs for a Spine Surgery Challenge</h1>
-    <p class="post__date">August 15, 2025</p>
+      <span class="post__tag">Medical Device Design</span>
+      <h1 class="post__title">Two Designs for a Spine Surgery Challenge</h1>
+      <p class="post__date">August 15, 2025</p>
     </header>
 
     <div class="post__body">
 
-    <p>
+      <p>
         Globus Medical sent me a design challenge as part of their interview process. The brief
         was short: design an expandable height trial instrument for thoracolumbar corpectomy
         surgery. Requirements were collapsed height under 18mm, maximize expansion, handle a
         50kg lift load, hand-operated only, approximately 150mm long, visible tip placement,
         and readable height display. That's it. No prescribed mechanism, no given approach,
         no hint at which direction to go.
-    </p>
+      </p>
 
-    <p>
+      <p>
         I decided to design two completely different solutions from scratch and present them
         both. Here's how that went.
-    </p>
+      </p>
 
-    <h3>The clinical problem first</h3>
+      <h3>The clinical problem first</h3>
 
-    <p>
+      <p>
         In a corpectomy, a damaged or diseased vertebral body gets removed entirely, usually
         because of trauma or a metastatic tumor. That leaves a gap between the two adjacent
         healthy endplates. The surgeon needs to fill that gap with an implant, but every
         patient's gap is a different size. Wrong implant height means the spine isn't restored
         to the right geometry, and that creates biomechanical problems downstream.
-    </p>
+      </p>
 
-    <p>
+      <p>
         A height trial solves this. You insert it collapsed so it fits through the gap, expand
         it until it fills the space and distracts the vertebral bodies apart, read the height,
         then choose the correctly sized permanent implant. It sounds simple but the dimensional
@@ -70,25 +66,61 @@
         around 14.9mm at T1 and goes up to about 28mm at L5. The device has to fit into the
         smallest space and reach the largest, all while surviving 490.5 N of compressive load
         from body weight.
-    </p>
+      </p>
 
-    <h3>Design 1: the scissor jack approach</h3>
+      <h3>Design 1: the scissor jack approach</h3>
 
-    <p>
+      <p>
         The first design uses a dual-layer scissor jack driven by a lead screw. The surgeon
         turns a handle which rotates the screw, the screw drives the scissor assemblies
         horizontally inward, and that horizontal compression forces the jaw plates apart
         vertically. Classic scissor jack geometry, miniaturized to fit inside a 17.393mm
         collapsed height.
-    </p>
-    <img src="/assets/images/blown-tire_200x267.jpeg"
-        alt="my tire that popped lol">
-        <p>The terrible tire!</p>
-    <p>
-        Funnily enough my inspiration for this actually came to me when one of the tires on my wheels exploded as I was driving down the highway and I had to put my spare on. As I was using that car jack to lift the car up, it hit me that I was looking at exactly what I needed for this challenge. A scissor jack! Obviously its one of the best compact mechanical systems for lifting heavy loads vertically. Duh! That same night I sat down and started figuring out how to model a novel scissor jack mechanism in fusion 360 that would match the challenge parameters.
-    </p>
+      </p>
 
-    <p>
+      <!-- The tire — Abbas's original addition, preserved exactly -->
+      <figure class="post__figure--inset post__figure">
+        <img
+          src="/assets/images/blown-tire.jpeg"
+          alt="The blown tire that inspired the scissor jack design"
+          class="post__figure-img"
+        />
+        <figcaption class="post__figure-caption">
+          The fabled tire!
+        </figcaption>
+      </figure>
+
+      <p>
+        Funnily enough my inspiration for this actually came to me when one of the tires on my
+        wheels exploded as I was driving down the highway and I had to put my spare on. As I was
+        using that car jack to lift the car up, it hit me that I was looking at exactly what I
+        needed for this challenge. A scissor jack! Obviously its one of the best compact
+        mechanical systems for lifting heavy loads vertically. Duh! That same night I sat down
+        and started figuring out how to model a novel scissor jack mechanism in fusion 360 that
+        would match the challenge parameters.
+      </p>
+
+      <!--
+        IMAGE: The collapsed and expanded side-by-side from slide 5 of the PPTX,
+        showing the Fusion 360 model at 17.393 mm and 30.643 mm with measurement annotations.
+        In PowerPoint: right-click the image on slide 5 > Save as Picture.
+        Save as: /assets/images/scissor-jack-range.png
+      -->
+      <figure class="post__figure">
+        <img
+          src="/assets/images/scissor-jack-range.png"
+          alt="Fusion 360 model of the scissor jack design showing collapsed height of 17.393mm and expanded height of 30.643mm"
+          class="post__figure-img"
+        />
+        <figcaption class="post__figure-caption">
+          Design 1 collapsed (17.393 mm) and expanded (30.643 mm). The 0.607 mm margin
+          below the 18 mm requirement is tight enough that tolerance stack-up management
+          is non-negotiable during manufacturing.
+        </figcaption>
+      </figure>
+      <!-- TODO: right-click the side-by-side image on slide 5 in PowerPoint > Save as Picture > save as scissor-jack-range.png -->
+
+      <p>
         The interesting part was working out the force chain using virtual work. The principle
         is simple: in a frictionless rigid linkage, input work equals output work. What I
         found was that at the starting position, the geometric ratio between vertical jaw
@@ -96,17 +128,17 @@
         the scissors close horizontally, the jaw moves 4.625mm vertically. By force-velocity
         duality, that same ratio applies in reverse to forces. The lead screw needs to generate
         4.625 times the required distraction force.
-    </p>
+      </p>
 
-    <p>
+      <p>
         So instead of the screw needing to produce 490.5 N... it needs to produce 2,268.5 N.
         That was a sobering number to write down. But it's not an error in the design, it's
         a geometric consequence that you document and account for. The good news is that the
         lead screw handles it easily, and the mechanical advantage actually improves as the
         scissor opens further, so the worst case is always right at the starting position.
-    </p>
+      </p>
 
-    <p>
+      <p>
         For the lead screw itself I ran a parametric study on pitch selection, which turned
         out to be more consequential than I expected. At 1.0mm pitch the self-locking margin
         is 2.51x, meaning the thread friction is 2.51 times what would be needed for the
@@ -114,9 +146,9 @@
         drops to 1.26x, which sounds okay until you think about repeated autoclave sterilization
         cycles changing the surface roughness of the stainless steel threads. That 1.26x margin
         could drift below the threshold. Not a risk worth taking in a surgical instrument.
-    </p>
+      </p>
 
-    <p>
+      <p>
         The height readout for Design 1 is a laser-etched millimeter scale on the lead screw
         shaft that moves past a stationary collar on the body of the instrument. Exactly like
         reading a micrometer. One important detail: the scale markings are NOT uniformly spaced.
@@ -125,16 +157,36 @@
         to that actual jaw height from the kinematic model. A uniform scale would give wrong
         readings. The engravings go 0.15mm deep into the steel so they survive any sterilization
         process without fading.
-    </p>
+      </p>
 
-    <h3>Design 2: Pascal's Law does the lifting</h3>
+      <h3>Design 2: Pascal's Law does the lifting</h3>
 
-    <p>
+      <p>
         The second design came from asking a different question: what if there were no mechanical
         linkage in the head at all? The answer was hydraulics.
-    </p>
+      </p>
 
-    <p>
+      <!--
+        IMAGE: The hydraulic plunger Fusion 360 model from the PPTX cover slide (slide 20),
+        showing the full instrument with the curved hydraulic tube connecting the handle to the tip.
+        Right-click the CAD render on slide 20 > Save as Picture.
+        Save as: /assets/images/hydraulic-plunger-render.png
+      -->
+      <figure class="post__figure">
+        <img
+          src="/assets/images/hydraulic-plunger-render.png"
+          alt="Fusion 360 model of the hydraulic plunger distractor showing the curved saline channel connecting handle to instrument tip"
+          class="post__figure-img"
+        />
+        <figcaption class="post__figure-caption">
+          Design 2: the hydraulic plunger. The curved tube is the saline channel connecting
+          the master piston in the handle to the slave cylinder at the instrument tip.
+          No mechanical linkage, no pivot pins, nothing moving in the head except the piston itself.
+        </figcaption>
+      </figure>
+      <!-- TODO: right-click the CAD render on slide 20 in PowerPoint > Save as Picture > save as hydraulic-plunger-render.png -->
+
+      <p>
         The inferior jaw plate is machined as a hydraulic cylinder. The superior jaw plate is
         the piston. A lead screw in the handle drives a small master piston that pumps sterile
         saline through a 2mm bore channel in the shaft, pressurizing the slave cylinder at the
@@ -142,27 +194,47 @@
         so if the slave piston area is larger than the master piston area, the slave generates
         proportionally more force. With a 13mm slave and 8mm master, a 6.68 N thumb force on
         the handle produces 490.5 N of distraction force at the tip.
-    </p>
+      </p>
 
-    <p>
+      <p>
         The problem I ran into was the volume math. To travel 11mm, the 13mm slave piston
         needs to displace 1.460 mL of fluid. If you tried to push that in a single stroke of
         the master piston, an 8mm master would need a 29mm plunger stroke, which barely fits
         the handle. A smaller master piston makes the stroke even longer and the geometry
         completely impossible. Force and stroke fight each other, and with a single stroke
         you can't win both.
-    </p>
+      </p>
 
-    <p>
+      <p>
         The solution was to break the total stroke into small steps using the same lead screw
         and thumb wheel approach. Each full revolution of the thumb wheel advances the master
         plunger 1.0mm, displacing enough fluid to move the slave piston 0.379mm. Full 11mm
         travel takes 29 turns, which takes about 3 to 5 seconds. The lead screw is self-locking
         with a 2.4x margin, so hydraulic back-pressure can't reverse the thumb wheel. Height
         holds passively.
-    </p>
+      </p>
 
-    <p>
+      <!--
+        IMAGE: The cutaway/cross-section Fusion 360 render of the hydraulic head from slide 23
+        of the PPTX, showing the cylinder bore and piston at 16mm collapsed and 27mm expanded.
+        Right-click the image on slide 23 > Save as Picture.
+        Save as: /assets/images/hydraulic-head-cutaway.png
+      -->
+      <figure class="post__figure">
+        <img
+          src="/assets/images/hydraulic-head-cutaway.png"
+          alt="Cross-section cutaway of the hydraulic head showing the slave piston extended to 27mm expanded height"
+          class="post__figure-img"
+        />
+        <figcaption class="post__figure-caption">
+          Cutaway of the hydraulic head at full expansion (27mm). The piston extending above
+          the cylinder rim is also the primary height readout — the exposed length directly
+          equals the expansion above the 14mm baseline. No conversion, no arithmetic.
+        </figcaption>
+      </figure>
+      <!-- TODO: right-click the cutaway image on slide 23 in PowerPoint > Save as Picture > save as hydraulic-head-cutaway.png -->
+
+      <p>
         For the wall thickness of the slave cylinder I originally used thin-wall hoop stress
         assumptions. When I went back and checked the geometry, the wall-to-radius ratio came
         out to 0.308, which exceeds the 0.1 threshold where thin-wall assumptions are valid.
@@ -171,77 +243,90 @@
         sound, the safety factor is still enormous, but the formula and the stated values in the
         presentation needed updating. That's the kind of thing you catch when you check your
         assumptions, not just your arithmetic.
-    </p>
+      </p>
 
-    <p>
+      <p>
         Design 2's height readout is actually a dual system. Primary is the exposed piston
         length above the cylinder rim, which directly equals the expansion above the 14mm
         baseline. No conversion needed, just read what's visible. Secondary is the same etched
         lead screw plus barrel collar approach from Design 1, giving a second independent
         confirmation of the reading at the handle end.
-    </p>
+      </p>
 
-    <h3>Comparing them honestly</h3>
+      <h3>Comparing them honestly</h3>
 
-    <p>
+      <!-- Both designs animated side by side — already in assets -->
+      <figure class="post__figure">
+        <img
+          src="/assets/images/combined_distractors.gif"
+          alt="Animation of both designs expanding: scissor jack first, hydraulic plunger second"
+          class="post__figure-img"
+        />
+        <figcaption class="post__figure-caption">
+          Both designs expanding in Fusion 360. The scissor jack (first) has more travel but
+          the geometric force disadvantage is obvious at the start. The hydraulic plunger (second)
+          has a simpler head and smoother force distribution, at the cost of an O-ring and a
+          saline priming step.
+        </figcaption>
+      </figure>
+
+      <p>
         Design 1 covers a wider range, 17.393 to 30.643mm, which spans the full thoracolumbar
         spectrum. It's all metal with no seals, which makes sterilization simple and removes
         one potential failure mode. The weakness is the geometric force disadvantage at the
         starting position and the tight 0.607mm margin below the 18mm constraint.
-    </p>
+      </p>
 
-    <p>
+      <p>
         Design 2 requires about 4N less thumb force, has no moving parts in the head, and
         delivers more uniform endplate force distribution which matters particularly in
         osteoporotic bone. The weakness is the O-ring, which is a single point of failure that
         demands tight bore tolerances and a validated cleaning protocol if the device is reusable.
         It also needs to be primed with saline and air-bled before each use, which adds a step
         to the surgical workflow.
-    </p>
+      </p>
 
-    <p>
+      <p>
         Neither design is strictly better. The choice depends on the clinical context, the
         surgeon's preference, and what sterilization infrastructure the hospital has. I presented
         both to the Globus interview board with that conclusion, because I think arriving at
         "it depends, and here's exactly what it depends on" is more useful than forcing a single
         answer when the tradeoffs are genuinely context-dependent.
-    </p>
+      </p>
 
-    <h3>What I took away from this</h3>
+      <h3>What I took away from this</h3>
 
-    <p>
+      <p>
         Running two parallel designs forced a level of rigor I wouldn't have applied to just one.
         When you have a second approach, every assumption in the first one gets questioned. Why
         a scissor jack? What does hydraulics give you that mechanical linkages don't? Answering
         those questions for yourself before someone in an interview room asks them is the whole
         game.
-    </p>
+      </p>
 
-    <p>
+      <p>
         The other thing this project reinforced is that catching your own errors matters more
         than not making them. The thin-wall pressure vessel assumption was wrong, and I found it
         by going back and checking the geometry against the validity conditions for the formula.
         The result still shows a safe design, but the stated values were incorrect. Documenting
         that correction honestly is better than leaving wrong numbers in a polished slide deck
         and hoping nobody notices.
-    </p>
+      </p>
 
     </div>
 
-    <!-- Bottom navigation — populated by blog-nav.js -->
     <nav class="post__nav post__nav--bottom" id="post-nav-bottom"></nav>
+  </article>
 
-</article>
+  <div id="footer-container"></div>
+  <script src="/js/footer-loader.js"></script>
 
-<div id="footer-container"></div>
-<script src="/js/footer-loader.js"></script>
-
-<a href="#" class="back-to-top" title="Back to Top">
+  <a href="#" class="back-to-top" title="Back to Top">
     <img src="/assets/images/arrow-up.svg" alt="Back to Top" class="back-to-top__image" />
-</a>
+  </a>
 
-<script src="/js/blog-posts.js"></script>
-<script src="/js/blog-nav.js"></script>
-<script src="/js/blog.js"></script>
+  <script src="/js/blog-posts.js"></script>
+  <script src="/js/blog-nav.js"></script>
+  <script src="/js/blog.js"></script>
 </body>
 </html>

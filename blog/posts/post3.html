@@ -24,8 +24,6 @@
   </div>
 
   <article class="post__content">
-
-    <!-- Top navigation — populated by blog-nav.js -->
     <nav class="post__nav" id="post-nav-top"></nav>
 
     <header class="post__header">
@@ -61,6 +59,25 @@
         measurement baseline that everything else gets compared against.
       </p>
 
+      <!--
+        IMAGE: The Labsphere Spectralon reference standard discs (white and black) that appear
+        in the engineering portfolio PDF page 8. These are the calibration references for the test.
+        Screenshot or export from the PDF and save as: /assets/images/spectralon-standards.png
+      -->
+      <figure class="post__figure--inset post__figure">
+        <img
+          src="/assets/images/spectralon-standards.png"
+          alt="Labsphere Spectralon white and black diffuse reflectance standards used for calibration"
+          class="post__figure-img"
+        />
+        <figcaption class="post__figure-caption">
+          Labsphere Spectralon diffuse reflectance standards. The white disc is a near-perfect
+          reflector; the black disc is the near-perfect absorber. The paint sample gets compared
+          against both to calculate relative reflectance across the wavelength range.
+        </figcaption>
+      </figure>
+      <!-- TODO: save this as spectralon-standards.png from the engineering portfolio PDF page 8 -->
+
       <p>
         The fixture needed to ensure that every time someone ran this test, the geometry was
         identical. Same sample position, same angle, same distance. That repeatability is the
@@ -77,6 +94,25 @@
         component already exists with the precision you need, you use it. Designing it yourself
         takes time and you usually don't do it better than a company that specializes in it.
       </p>
+
+      <!--
+        IMAGE: SolidWorks CAD model of the reflectivity fixture.
+        Export a screenshot or render from SolidWorks and save as: /assets/images/reflectivity-fixture-cad.png
+      -->
+      <figure class="post__figure">
+        <img
+          src="/assets/images/reflectivity-fixture-cad.png"
+          alt="SolidWorks CAD model of the precision reflectivity measurement fixture"
+          class="post__figure-img"
+        />
+        <figcaption class="post__figure-caption">
+          SolidWorks model of the fixture. The sample holder positions the paint sample at a
+          fixed angle relative to the spectrometer input port, with the Spectralon reference
+          seated in the adjacent well. Every dimension is constrained so the geometry is
+          identical regardless of who sets up the test.
+        </figcaption>
+      </figure>
+      <!-- TODO: export the fixture CAD from SolidWorks and save as reflectivity-fixture-cad.png -->
 
       <p>
         The tricky part was the alignment constraints. Optical measurements are sensitive to
@@ -102,6 +138,25 @@
         sample, what settings to use, how to record the data, what to do if something looks
         off. Standard documentation. I figured it would sit in a folder somewhere.
       </p>
+
+      <!--
+        IMAGE: The multi-component wavelength calibration curve from the engineering portfolio
+        PDF page 8 — the reflectance vs. wavelength plot (200–2500 nm range).
+        Export from PDF and save as: /assets/images/reflectivity-calibration-curve.png
+      -->
+      <figure class="post__figure">
+        <img
+          src="/assets/images/reflectivity-calibration-curve.png"
+          alt="Multi-component wavelength calibration curve showing 8/d hemispherical reflectance across 200 to 2500 nm"
+          class="post__figure-img"
+        />
+        <figcaption class="post__figure-caption">
+          Wavelength calibration curve produced using the fixture and the Spectralon standard.
+          The distinct absorption features are the fingerprints of the calibration material,
+          confirming the measurement system is responding correctly across the full wavelength range.
+        </figcaption>
+      </figure>
+      <!-- TODO: export the calibration curve from the engineering portfolio PDF page 8 and save as reflectivity-calibration-curve.png -->
 
       <p>
         Apparently it didn't. The team told me that because the procedure was now fully
@@ -138,9 +193,7 @@
 
     </div>
 
-    <!-- Bottom navigation — populated by blog-nav.js -->
     <nav class="post__nav post__nav--bottom" id="post-nav-bottom"></nav>
-
   </article>
 
   <div id="footer-container"></div>

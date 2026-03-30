@@ -1,5 +1,5 @@
 /* ==========================================
-  BLOG INDEX — HERO
+   BLOG INDEX — HERO
 ========================================== */
 
 .blog__hero {
@@ -43,7 +43,7 @@
 }
 
 /* ==========================================
-  BLOG INDEX — POST FEED
+   BLOG INDEX — POST FEED
 ========================================== */
 
 .blog__feed {
@@ -55,7 +55,6 @@
   margin-bottom: var(--gutter-medium);
 }
 
-/* Horizontal editorial card */
 .post-card {
   display: flex;
   flex-direction: row;
@@ -124,7 +123,6 @@
   line-height: var(--line-height-small);
 }
 
-/* Override global h2::after on card titles */
 .post-card__title::after {
   display: none;
 }
@@ -182,7 +180,7 @@
 }
 
 /* ==========================================
-  INDIVIDUAL POST — FEATURED IMAGE
+   INDIVIDUAL POST — FEATURED IMAGE
 ========================================== */
 
 .post__featured {
@@ -212,7 +210,7 @@
 }
 
 /* ==========================================
-  INDIVIDUAL POST — READING COLUMN
+   INDIVIDUAL POST — READING COLUMN
 ========================================== */
 
 .post__content {
@@ -247,7 +245,6 @@
   margin-bottom: 1rem;
 }
 
-/* Override global h2::after on post titles */
 .post__title::after {
   display: none;
 }
@@ -259,7 +256,7 @@
 }
 
 /* ==========================================
-  INDIVIDUAL POST — BODY TYPOGRAPHY
+   INDIVIDUAL POST — BODY TYPOGRAPHY
 ========================================== */
 
 .post__body {
@@ -321,7 +318,53 @@
 }
 
 /* ==========================================
-  POST NAVIGATION (prev / all posts / next)
+   INLINE FIGURES & CAPTIONS
+   Usage:
+   <figure class="post__figure">
+     <img src="..." alt="..." class="post__figure-img" />
+     <figcaption class="post__figure-caption">Caption text here</figcaption>
+   </figure>
+
+   For smaller/inset images (portrait orientation, personal photos):
+   Add class "post__figure--inset" to centre and constrain width.
+========================================== */
+
+.post__figure {
+  margin: var(--gutter-medium) 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #2e2e2e;
+}
+
+.post__figure-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  /* Animated GIFs play automatically; no extra CSS needed */
+}
+
+.post__figure-caption {
+  display: block;
+  background: rgba(255, 255, 255, 0.03);
+  border-top: 1px solid #2e2e2e;
+  padding: 1rem 1.6rem;
+  font-size: 1.4rem;
+  font-family: 'Jost', sans-serif;
+  color: #888;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* Inset variant: centred, max 460px wide — good for portrait/personal photos */
+.post__figure--inset {
+  max-width: 460px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==========================================
+   POST NAVIGATION (prev / all posts / next)
 ========================================== */
 
 .post__nav {
@@ -355,7 +398,6 @@
   color: var(--pink);
 }
 
-/* Kill the global a::after hover behaviour inside nav links */
 .post__nav-link::after {
   display: none;
 }
@@ -369,7 +411,6 @@
   text-align: right;
 }
 
-/* Empty spacer so the All Posts button stays centred when one side is missing */
 .post__nav-spacer {
   flex: 1;
   max-width: 38%;
@@ -389,7 +430,6 @@
   line-height: 1.4;
 }
 
-/* Centre button — override .btn padding so it doesn't look oversized in the nav */
 .post__nav-home.btn {
   flex: 0 0 auto;
   align-self: center;
@@ -424,7 +464,7 @@
 }
 
 /* ==========================================
-  BACK TO TOP BUTTON
+   BACK TO TOP BUTTON
 ========================================== */
 
 .back-to-top {
@@ -453,7 +493,7 @@
 }
 
 /* ==========================================
-  SHARED FADE ANIMATION
+   SHARED FADE ANIMATION
 ========================================== */
 
 @keyframes fadeInUp {

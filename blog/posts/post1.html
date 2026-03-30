@@ -24,8 +24,6 @@
   </div>
 
   <article class="post__content">
-
-    <!-- Top navigation — populated by blog-nav.js -->
     <nav class="post__nav" id="post-nav-top"></nav>
 
     <header class="post__header">
@@ -82,6 +80,23 @@
         isolating the structure you care about from everything else in the scan.
       </p>
 
+      <!--
+        IMAGE: CT segmentation output showing vertebral outlines traced on axial DICOM slices.
+        This is the red-outline image from page 1 of the engineering portfolio PDF.
+        Export it and save as: /assets/images/pekk-segmentation-dicom.png
+      -->
+      <figure class="post__figure">
+        <img
+          src="/assets/images/MRSegmentation.png"
+          alt="Multi-level CT segmentation showing vertebral outlines traced across cervical, thoracic, and lumbar regions"
+          class="post__figure-img"
+        />
+        <figcaption class="post__figure-caption">
+          CT segmentation across multiple spinal levels. Each red outline is manually verified slice-by-slice
+          before being used as the geometric reference for CAD.
+        </figcaption>
+      </figure>
+
       <p>
         In theory, you set a threshold for bone density and the software highlights bone.
         In practice, the boundary between bone and soft tissue is never that clean. I ended up
@@ -105,6 +120,24 @@
         not one implant but a range of boundary designs that could accommodate the anatomical
         variation across different patient cases.
       </p>
+
+      <!--
+        IMAGE: The 3D rendered vertebral body with the implant seated in the corpectomy defect,
+        showing the porous solid geometry. From the engineering portfolio PDF page 2 renders.
+        Export the best CAD render and save as: /assets/images/pekk-implant-cad-render.png
+      -->
+      <figure class="post__figure">
+        <img
+          src="/assets/images/pekk-implant-cad-render.png"
+          alt="CAD render of the PEKK implant seated in a vertebral corpectomy defect"
+          class="post__figure-img"
+        />
+        <figcaption class="post__figure-caption">
+          CAD model of the PEKK implant geometry seated in the vertebral defect. The porous
+          regions are designed to allow bone ingrowth and long-term biological integration.
+        </figcaption>
+      </figure>
+      <!-- TODO: export a CAD render from Fusion 360 or D2P and save as pekk-implant-cad-render.png -->
 
       <p>
         There were a lot of constraints pulling in different directions at once. The implant
@@ -134,6 +167,25 @@
         spent on segmentation suddenly felt completely worth it.
       </p>
 
+      <!--
+        IMAGE: Photo of the 3D printed PEKK implant prototypes (the white/clear rectangular blocks
+        from the portfolio PDF page 2 photos), ideally next to a ruler or the printed skull for scale.
+        Save as: /assets/images/pekk-printed-prototypes.jpg
+      -->
+      <figure class="post__figure--inset post__figure">
+        <img
+          src="/assets/images/pekk-printed-prototypes.jpg"
+          alt="3D printed PEKK implant prototypes in solid and porous configurations"
+          class="post__figure-img"
+        />
+        <figcaption class="post__figure-caption">
+          Physical prototypes printed in PEKK. Left: solid geometry. Right: porous configuration
+          for bone ingrowth. The resin-printed skull in the background is from the NIH database —
+          just for fun.
+        </figcaption>
+      </figure>
+      <!-- TODO: photograph the printed implants and save as pekk-printed-prototypes.jpg -->
+
       <h3>What this taught me</h3>
 
       <p>
@@ -160,9 +212,7 @@
 
     </div>
 
-    <!-- Bottom navigation — populated by blog-nav.js -->
     <nav class="post__nav post__nav--bottom" id="post-nav-bottom"></nav>
-
   </article>
 
   <div id="footer-container"></div>
