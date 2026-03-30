@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building a Reflectivity Fixture from Scratch | Abbas Mirza</title>
+  <link rel="stylesheet" href="/css/global.css" />
+  <link rel="stylesheet" href="/css/nav.css" />
+  <link rel="stylesheet" href="/css/blog.css" />
+  <link rel="shortcut icon" type="image/webp" href="/assets/images/weblogo.webp" />
+  <meta name="description" content="How I designed a precision optical fixture during my internship at Horiba Instruments — and accidentally saved them $10K a year." />
+</head>
+<body>
+  <div id="nav-container"></div>
+  <script src="/js/nav-loader.js" defer></script>
+
+  <div class="post__featured">
+    <img
+      src="/assets/images/spectrometer.png"
+      alt="Horiba iHR spectrometer — the optical system I was working to support"
+      class="post__featured-img"
+    />
+    <div class="post__featured-overlay"></div>
+  </div>
+
+  <article class="post__content">
+
+    <a href="/blog/" class="btn post__back">← Back to Blog</a>
+
+    <header class="post__header">
+      <span class="post__tag">Engineering</span>
+      <h1 class="post__title">Building a Reflectivity Fixture from Scratch</h1>
+      <p class="post__date">June 10, 2025</p>
+    </header>
+
+    <div class="post__body">
+
+      <p>
+        During my internship at Horiba Instruments, I got handed a problem that sounded 
+        simple at first. The team needed a reliable way to measure the reflectivity of paint 
+        samples used on internal optical components — basically, they needed to know exactly 
+        how much light a painted surface was absorbing versus bouncing back. The issue was 
+        that their current method was inconsistent. Different engineers would set up the 
+        test differently, get different results, and nobody was fully confident in the numbers. 
+        Every time they needed to test a new batch of paint, they were essentially starting 
+        from scratch.
+      </p>
+
+      <p>
+        They handed this to the intern. That intern was me. No pressure!
+      </p>
+
+      <h3>What even is a reflectivity fixture?</h3>
+
+      <p>
+        The goal was to design a physical fixture that would hold a paint sample at a precise 
+        angle and distance relative to the spectrometer's input optics, with a calibrated 
+        Spectralon black standard as the reference. Spectralon is a material with a very 
+        well-characterized reflectance across a wide wavelength range — it's basically the 
+        measurement standard that everything else gets compared against.
+      </p>
+
+      <p>
+        The fixture needed to ensure that every time someone ran this test, the geometry was 
+        identical. Same sample position, same angle, same distance. That repeatability is the 
+        whole point — if the setup changes between tests, you can't compare results, and the 
+        data is meaningless.
+      </p>
+
+      <h3>Designing it</h3>
+
+      <p>
+        I modeled the fixture in SolidWorks, sourcing components from Thorlabs and McMaster-Carr 
+        where I could rather than fabricating everything from scratch. Thorlabs especially has 
+        an enormous catalog of optical mounts and positioning hardware — if a component already 
+        exists with the precision you need, you use it. Designing it yourself takes time and 
+        you usually don't do it better than a company that specializes in it.
+      </p>
+
+      <p>
+        The tricky part was the alignment constraints. Optical measurements are sensitive to 
+        small angular errors in a way that mechanical assemblies often aren't. A few tenths 
+        of a degree off in sample tilt changes your reflectance reading meaningfully. I had 
+        to think carefully about how the fixture would be loaded and unloaded during actual 
+        use — because the most precisely designed fixture in the world doesn't help if a 
+        technician loading a sample can inadvertently knock the alignment out.
+      </p>
+
+      <p>
+        I iterated through a few design versions, each time doing alignment tests to check 
+        repeatability and talking with the optical engineers to make sure the geometry actually 
+        matched what the spectrometer needed. They caught things I wouldn't have thought to 
+        check from a purely mechanical standpoint. That back-and-forth was genuinely useful.
+      </p>
+
+      <h3>The part I didn't expect</h3>
+
+      <p>
+        After I got the fixture dialed in, I wrote up the testing procedure — how to load the 
+        sample, what settings to use, how to record the data, what to do if something looks 
+        off. Standard documentation. I figured it would sit in a folder somewhere.
+      </p>
+
+      <p>
+        Apparently it didn't. The team told me that because the procedure was now fully 
+        standardized and reproducible, they no longer needed to send certain tests out to 
+        an external lab for verification. That external testing had been costing around 
+        $10,000 a year. I had no idea that was the downstream impact of what I was doing 
+        when I was in the middle of it — I was just trying to make the fixture work correctly.
+      </p>
+
+      <div class="post__callout">
+        I think about this a lot when I hear people dismiss documentation as busywork. 
+        The fixture was the engineering. The documentation was what made it repeatable 
+        and transferable. You need both, or you only get half the value.
+      </div>
+
+      <h3>What I learned</h3>
+
+      <p>
+        The biggest thing was learning to work at the intersection of mechanical and optical 
+        engineering. I came in thinking mostly mechanically — tolerances, fits, load paths. 
+        The optical engineers were thinking about wavefronts, alignment sensitivity, and 
+        measurement uncertainty. Getting fluent enough in their language to have productive 
+        conversations was a skill in itself.
+      </p>
+
+      <p>
+        I also learned that the scope of a project almost always expands once you're in it. 
+        What started as "design a fixture" turned into alignment testing, procedure writing, 
+        cross-team validation, and eventually a cost impact I hadn't anticipated. Going in 
+        with a narrow definition of the deliverable and a willingness to follow where the 
+        problem actually leads you — that seems to be how useful engineering work actually 
+        happens.
+      </p>
+
+    </div>
+  </article>
+
+  <div id="footer-container"></div>
+  <script src="/js/footer-loader.js"></script>
+</body>
+</html>

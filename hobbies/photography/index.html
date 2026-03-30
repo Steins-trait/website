@@ -3,19 +3,79 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#000000"/>
   <title>Abbas Mirza | Photography</title>
   <link rel="stylesheet" href="/css/global.css" />
+  <link rel="stylesheet" href="/css/nav.css" />
   <link rel="stylesheet" href="/css/hobbies.css" />
+  <link rel="shortcut icon" type="image/webp" href="/assets/images/weblogo.webp" />
+  <meta name="description" content="Abbas Mirza's photography — street scenes, nature, and whatever catches the eye." />
 </head>
 <body>
-    <div id="nav-container"></div>
-    <script src="/js/nav-loader.js" defer></script>
-    <main class="home">
-        <section class="hero">
-        <h1>Photography</h1>
-        <p>I like taking pictures</p>
-        <div class="buttons">
-            <a href="/hobbies/" class="btn">← Back to Hobbies</a>
+  <div id="nav-container"></div>
+  <script src="/js/nav-loader.js" defer></script>
+
+  <!-- HERO -->
+  <header class="hobby-page__hero">
+    <div class="hobby-page__hero-text">
+      <h1 class="heading-primary">📷 Photography</h1>
+      <p>Finding the frame in the everyday.</p>
+      <a href="/hobbies/" class="btn">← Back to Hobbies</a>
+    </div>
+  </header>
+
+  <!-- GALLERY -->
+  <main>
+    <section class="gallery">
+      <div class="row">
+        <h2>Gallery</h2>
+        <div class="gallery__intro">
+          <p>
+            I shoot mostly with my phone and a secondhand DSLR — no fancy gear, just an eye for 
+            interesting light and moments. Gallery coming soon as I get out there more!
+          </p>
         </div>
-        </section>
-    </main>
+
+        <div class="gallery__grid">
+          <!--
+            TO ADD A REAL PHOTO: Replace a .gallery__placeholder div with:
+
+            <div class="gallery__item">
+              <img src="/assets/images/your-photo.jpg" alt="Description of photo" />
+              <div class="gallery__item-caption">Caption here</div>
+            </div>
+          -->
+
+          <div class="gallery__placeholder">
+            <span class="gallery__placeholder-icon">📷</span>
+            <span class="gallery__placeholder-text">Coming Soon</span>
+          </div>
+          <div class="gallery__placeholder">
+            <span class="gallery__placeholder-icon">📷</span>
+            <span class="gallery__placeholder-text">Coming Soon</span>
+          </div>
+          <div class="gallery__placeholder">
+            <span class="gallery__placeholder-icon">📷</span>
+            <span class="gallery__placeholder-text">Coming Soon</span>
+          </div>
+          <div class="gallery__placeholder">
+            <span class="gallery__placeholder-icon">📷</span>
+            <span class="gallery__placeholder-text">Coming Soon</span>
+          </div>
+          <div class="gallery__placeholder">
+            <span class="gallery__placeholder-icon">📷</span>
+            <span class="gallery__placeholder-text">Coming Soon</span>
+          </div>
+          <div class="gallery__placeholder">
+            <span class="gallery__placeholder-icon">📷</span>
+            <span class="gallery__placeholder-text">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-container"></div>
+  <script src="/js/footer-loader.js"></script>
+</body>
+</html>

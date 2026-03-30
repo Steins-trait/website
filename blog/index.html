@@ -3,32 +3,119 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#000000" />
   <title>Blog | Abbas Mirza</title>
   <link rel="stylesheet" href="/css/global.css" />
   <link rel="stylesheet" href="/css/nav.css" />
   <link rel="stylesheet" href="/css/blog.css" />
-  <link rel="shortcut icon" type="image/png" href="/assets/weblogo.png" />
-
-
+  <link rel="shortcut icon" type="image/webp" href="/assets/images/weblogo.webp" />
+  <meta name="description" content="Abbas Mirza's blog — engineering projects, research, and everything in between." />
 </head>
 <body>
-    <div id="nav-container"></div>
-    <script src="/js/nav-loader.js" defer></script>
+  <div id="nav-container"></div>
+  <script src="/js/nav-loader.js" defer></script>
 
-
+  <!-- HERO -->
   <header class="blog__hero">
-    <h1>📝 Abbas's Blog</h1>
-    <p>Thoughts, projects, and everything in between.</p>
-    <h2>UNDER CONSTRUCTION!</h2>
-    <a href="/" class="btn">← Back to Home</a>
+    <div class="blog__hero-text">
+      <h1 class="heading-primary">📝 The Blog</h1>
+      <p>Engineering projects, research deep-dives, and everything in between.</p>
+    </div>
   </header>
 
+  <!-- POST FEED -->
+  <main>
+    <section class="blog__feed">
+      <div class="row">
+        <h2>All Posts</h2>
 
-  <!-- ***** Footer ***** -->
+        <!-- Post 1 -->
+        <a href="/blog/posts/post1.html" class="post-card">
+          <div class="post-card__image-wrap">
+            <img
+              src="/assets/images/MRSegmentation.png"
+              alt="CT segmentation of vertebral anatomy for PEKK implant design"
+              class="post-card__image"
+            />
+          </div>
+          <div class="post-card__body">
+            <span class="post-card__tag">Research</span>
+            <h2 class="post-card__title">How I Designed a Custom PEKK Implant</h2>
+            <p class="post-card__excerpt">
+              So I'm in my first semester of grad school and I get the opportunity to join the 
+              Drexel Implant Research Center. The project: develop a patient-specific design 
+              envelope for spinal implants made from PEKK, aimed at patients with metastatic 
+              spinal lesions. I said yes immediately — maybe before I fully understood what 
+              I was signing up for.
+            </p>
+            <p class="post-card__meta">April 30, 2025</p>
+            <span class="post-card__link">Read more →</span>
+          </div>
+        </a>
+
+        <!-- Post 2 -->
+        <a href="/blog/posts/post2.html" class="post-card">
+          <div class="post-card__image-wrap">
+            <img
+              src="/assets/images/MEM-43-Poster.pptx.png"
+              alt="Collaborative robotics senior design project poster"
+              class="post-card__image"
+            />
+          </div>
+          <div class="post-card__body">
+            <span class="post-card__tag">Engineering</span>
+            <h2 class="post-card__title">Lessons from Collaborative Robotics</h2>
+            <p class="post-card__excerpt">
+              Our senior design team got paired with B&G Manufacturing, a machine shop 
+              that produces bolts on CNC lathes. The problem: a worker was spending their 
+              entire shift manually loading and unloading parts. They wanted it automated — 
+              on a budget, without shutting down the floor. That last constraint was the 
+              key one.
+            </p>
+            <p class="post-card__meta">May 15, 2025</p>
+            <span class="post-card__link">Read more →</span>
+          </div>
+        </a>
+
+        <!-- Post 3 -->
+        <a href="/blog/posts/post3.html" class="post-card">
+          <div class="post-card__image-wrap">
+            <img
+              src="/assets/images/spectrometer.png"
+              alt="Horiba iHR spectrometer optical system"
+              class="post-card__image"
+            />
+          </div>
+          <div class="post-card__body">
+            <span class="post-card__tag">Engineering</span>
+            <h2 class="post-card__title">Building a Reflectivity Fixture from Scratch</h2>
+            <p class="post-card__excerpt">
+              During my internship at Horiba Instruments, I got handed a problem that sounded 
+              simple at first. The team needed a reliable way to measure the reflectivity of 
+              paint samples on internal optical components. Their current method was 
+              inconsistent. Different engineers, different results, nobody confident in 
+              the numbers. They handed it to the intern. That was me.
+            </p>
+            <p class="post-card__meta">June 10, 2025</p>
+            <span class="post-card__link">Read more →</span>
+          </div>
+        </a>
+
+        <!--
+          TO ADD A NEW POST: Copy the block above and update:
+          - href on the <a> tag to /blog/posts/postN.html
+          - src and alt on the image
+          - post-card__tag text
+          - post-card__title
+          - post-card__excerpt (opening lines of the post work well here)
+          - post-card__meta date
+        -->
+
+      </div>
+    </section>
+  </main>
 
   <div id="footer-container"></div>
   <script src="/js/footer-loader.js"></script>
-
-
 </body>
 </html>

@@ -3,36 +3,82 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="theme-color" content="#00000"/>
-  <title>Abbas Mirza | Coding Projects</title>
-  <link rel="stylesheet" href="/css/global.css">
-  <link rel="stylesheet" href="/css/nav.css">
+  <meta name="theme-color" content="#000000"/>
+  <title>Abbas Mirza | Wood Carving</title>
+  <link rel="stylesheet" href="/css/global.css" />
+  <link rel="stylesheet" href="/css/nav.css" />
   <link rel="stylesheet" href="/css/hobbies.css" />
   <link rel="shortcut icon" type="image/webp" href="/assets/images/weblogo.webp" />
-  <meta name="description" content="Welcome to my coding projects" />
-  <!-- Add some coding keywords below, Ex: (React, CSS etc) -->
-  <meta name="keywords" content="Name: Abbas Mirza Skills: Programming Languages: Python 3, MATLAB, R, LaTeX, SQL, BASH, HTML, PHP
-  Engineering Tools: SOLIDWORKS, Creo Parametric, Auto-CAD, 3D Printing, Fusion 360, CURA, FormLabs, Dicom to
-  Print (D2P), Slicer 3D
-  Soft Skills: Strong Organization, Critical Thinking, Research Paper Writing, Technical Report Writing, Microsoft Suite,
-  Endnote, Regression Analysis, Hypothesis Testing, Simulation ModelingBiomedical Engineering Biomedical Clinical Technical Medical Devices Collaboration Hospital Compliance Documentation Biological Engineering Troubleshooting MS Office Analysis Calibration Mechanical Engineering Biomechanics Compliance Communication SKills Project Management Customer Service English Speaking Surgery Electricity" />
+  <meta name="description" content="Abbas Mirza's wood carving journey — slow craft, sharp tools, satisfying results." />
 </head>
-
 <body>
-    <div id="nav-container"></div>
-    <script src="/js/nav-loader.js" defer></script>
-    <main class="home">
-        <section class="hero">
-        <h1>Wood Carving</h1>
-        <p>My journey into the world of wood carving.</p>
-        <div class="buttons">
-            <a href="/hobbies/" class="btn">← Back to Hobbies</a>
+  <div id="nav-container"></div>
+  <script src="/js/nav-loader.js" defer></script>
+
+  <!-- HERO -->
+  <header class="hobby-page__hero">
+    <div class="hobby-page__hero-text">
+      <h1 class="heading-primary">🪵 Wood Carving</h1>
+      <p>Slow craft. Sharp tools. Satisfying results.</p>
+      <a href="/hobbies/" class="btn">← Back to Hobbies</a>
+    </div>
+  </header>
+
+  <!-- PIECES -->
+  <main>
+    <section class="carving__content">
+      <div class="row">
+        <h2>My Pieces</h2>
+        <div class="carving__intro">
+          <p>
+            I'm just getting started with carving — mostly basswood and simple relief work so far. 
+            I'll post pieces here as I finish them. Check back soon!
+          </p>
         </div>
-        </section>
-    </main>
 
-    <!-- ***** Footer ***** -->
+        <div class="carving__grid">
+          <!--
+            TO ADD A REAL PIECE: Replace a .carving__placeholder div with:
 
-    <div id="footer-container"></div>
-    <script src="/js/footer-loader.js"></script>
+            <div class="gallery__item">
+              <img src="/assets/images/your-carving.jpg" alt="Description of piece" />
+              <div class="gallery__item-caption">Caption or title of piece</div>
+            </div>
+          -->
 
+          <div class="carving__placeholder">
+            <span class="gallery__placeholder-icon">🪵</span>
+            <span class="gallery__placeholder-text">First piece — coming soon</span>
+          </div>
+          <div class="carving__placeholder">
+            <span class="gallery__placeholder-icon">🪵</span>
+            <span class="gallery__placeholder-text">Coming Soon</span>
+          </div>
+          <div class="carving__placeholder">
+            <span class="gallery__placeholder-icon">🪵</span>
+            <span class="gallery__placeholder-text">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOOLS -->
+    <section class="carving__tools">
+      <div class="row">
+        <h2>My Tools</h2>
+        <p>The gear I'm learning with. Nothing fancy — just what works:</p>
+        <ul class="carving__tools-list">
+          <li>🔪 Flexcut Starter Set</li>
+          <li>🪨 Stropping Block & Compound</li>
+          <li>🪵 Basswood Blanks</li>
+          <li>🧤 Cut-Resistant Gloves</li>
+          <li>✏️ Pencil & Carbon Paper for Transfers</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-container"></div>
+  <script src="/js/footer-loader.js"></script>
+</body>
+</html>

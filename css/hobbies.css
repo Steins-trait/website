@@ -1,22 +1,364 @@
-.header {
-    text-align: center;
-    margin-top: 3rem;
-}
+/* ==========================================
+   HOBBIES HUB — HERO
+========================================== */
 
-header h2::after {
-  content: "";
-  display: block;
-  width: 10rem;
-  height: 3px;
-  background: var(--pink); 
-  margin: 1rem auto 0 auto;
-  border-radius: 2px;
-}
-
-.hobby_hero {
+.hobbies__hero {
+  position: relative;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 0 var(--gutter-normal);
+}
+
+.hobbies__hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 1)),
+    url('/assets/images/myheader.webp') no-repeat center center;
+  background-size: cover;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  z-index: -1;
+}
+
+.hobbies__hero-text h1 {
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+.hobbies__hero-text p {
+  font-size: var(--font-size-medium);
+  max-width: var(--container-medium-width);
+  margin: 1.5rem auto 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.4s;
+  opacity: 0;
+}
+
+/* ==========================================
+   HOBBIES HUB — CARDS GRID
+========================================== */
+
+.hobbies__cards-section {
+  padding: var(--gutter-huge) 0;
+}
+
+.hobbies__cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: center;
+  margin-top: var(--gutter-medium);
+}
+
+/* Clickable card */
+a.hobby__card {
+  text-decoration: none;
+}
+
+.hobby__card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid #2e2e2e;
+  border-radius: 16px;
+  padding: 4rem 3rem;
+  flex: 1 1 260px;
+  max-width: 320px;
+  text-align: center;
+  color: var(--white-1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.hobby__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 40px rgba(255, 50, 88, 0.12);
+  border-color: var(--pink);
+}
+
+.hobby__card--soon {
+  opacity: 0.45;
+  cursor: default;
+  pointer-events: none;
+}
+
+.hobby__card-icon {
+  font-size: 4.5rem;
+  line-height: 1;
+}
+
+.hobby__card h3 {
+  font-size: var(--font-size-medium);
+  color: var(--white);
+  margin: 0;
+}
+
+.hobby__card p {
+  font-size: var(--font-size-small);
+  color: var(--white-1);
+  margin: 0;
+  line-height: var(--line-height-normal);
+}
+
+.hobby__card-link {
+  display: inline-block;
+  margin-top: 0.8rem;
+  color: var(--pink);
+  font-family: 'Jost', sans-serif;
+  font-size: 1.6rem;
+  border-bottom: 1px solid var(--pink);
+  padding-bottom: 2px;
+  transition: opacity 0.2s;
+}
+
+.hobby__card:hover .hobby__card-link {
+  opacity: 0.8;
+}
+
+.hobby__card-badge {
+  display: inline-block;
+  margin-top: 0.8rem;
+  background: #1e1e1e;
+  color: #666;
+  border-radius: 20px;
+  padding: 0.4rem 1.4rem;
+  font-size: 1.3rem;
+  font-family: 'Jost', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================
+   INDIVIDUAL HOBBY PAGES — HERO
+========================================== */
+
+.hobby-page__hero {
+  position: relative;
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 0 var(--gutter-normal);
+}
+
+/* Each hobby page can pass a different --hero-img variable via inline style,
+   or fall back to the default header image. */
+.hobby-page__hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 1)),
+    var(--hero-img, url('/assets/images/myheader.webp')) no-repeat center center;
+  background-size: cover;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  z-index: -1;
+}
+
+.hobby-page__hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+.hobby-page__hero-text h1 {
+  margin-bottom: 0;
+}
+
+.hobby-page__hero-text p {
+  font-size: var(--font-size-medium);
+  max-width: var(--container-medium-width);
+  margin: 0;
+}
+
+/* ==========================================
+   PHOTOGRAPHY — GALLERY GRID
+========================================== */
+
+.gallery {
+  padding: var(--gutter-huge) 0;
+}
+
+.gallery__intro {
+  max-width: var(--container-normal-width);
+  margin-bottom: var(--gutter-medium);
+}
+
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: var(--gutter-normal);
+}
+
+/* Placeholder tile — swap inner content for a real <img> when ready */
+.gallery__placeholder {
+  aspect-ratio: 4 / 3;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed #383838;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  transition: border-color 0.3s ease, background 0.3s ease;
+  cursor: default;
+}
+
+.gallery__placeholder:hover {
+  border-color: var(--pink);
+  background: rgba(255, 50, 88, 0.04);
+}
+
+.gallery__placeholder-icon {
+  font-size: 3rem;
+  opacity: 0.3;
+}
+
+.gallery__placeholder-text {
+  font-size: 1.4rem;
+  font-family: 'Jost', sans-serif;
+  color: #555;
+  letter-spacing: 0.04em;
+}
+
+/* Real image tile (use when you drop actual photos in) */
+.gallery__item {
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: zoom-in;
+  position: relative;
+}
+
+.gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+.gallery__item:hover img {
+  transform: scale(1.04);
+}
+
+.gallery__item-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  color: var(--white);
+  font-size: 1.4rem;
+  font-family: 'Jost', sans-serif;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery__item:hover .gallery__item-caption {
+  opacity: 1;
+}
+
+/* ==========================================
+   WOOD CARVING — PIECES GRID
+========================================== */
+
+.carving__content {
+  padding: var(--gutter-huge) 0;
+}
+
+.carving__intro {
+  max-width: var(--container-normal-width);
+  margin-bottom: var(--gutter-medium);
+}
+
+.carving__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: var(--gutter-normal);
+}
+
+/* Placeholder tile — portrait ratio suits carved pieces */
+.carving__placeholder {
+  aspect-ratio: 3 / 4;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed #383838;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.carving__placeholder:hover {
+  border-color: var(--pink);
+  background: rgba(255, 50, 88, 0.04);
+}
+
+/* ==========================================
+   WOOD CARVING — TOOLS SECTION
+========================================== */
+
+.carving__tools {
+  padding: var(--gutter-huge) 0;
+}
+
+.carving__tools-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: var(--gutter-normal);
+  list-style: none;
+  padding: 0;
+}
+
+.carving__tools-list li {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid #2e2e2e;
+  border-radius: 8px;
+  padding: 1rem 2.2rem;
+  font-size: 1.6rem;
+  font-family: 'Jost', sans-serif;
+  color: var(--white-1);
+  transition: border-color 0.2s ease;
+}
+
+.carving__tools-list li:hover {
+  border-color: var(--pink);
+}
+
+/* ==========================================
+   SHARED FADE ANIMATION
+========================================== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -9,7 +9,6 @@ const handleFirstTab = (e) => {
     window.removeEventListener('keydown', handleFirstTab)
     window.addEventListener('mousedown', handleMouseDownOnce)
   }
-
 }
 
 const handleMouseDownOnce = () => {
@@ -42,31 +41,19 @@ window.addEventListener("scroll", () => {
   }
 });
 
-const navToggle = document.querySelector('.nav__toggle');
-const navItems = document.querySelector('.nav__items');
-
-// navToggle.addEventListener('click', () => {
-//     navItems.classList.toggle('nav__items--visible');
-//     navToggle.classList.toggle('nav__toggle--open');
-// });
-
-
-// navToggle.addEventListener('click', () => {
-//   console.log("Hamburger clicked!");
-//   navItems.classList.toggle('nav__items--open');
-// });
-
-
 document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('crimmi-modal');
   const modalImage = document.getElementById('modal-image');
   const modalClose = document.querySelector('.modal__close');
   const projectImage = document.querySelector('[data-modal="crimmi-modal"]');
 
+  // Guard: if the modal elements aren't on this page, do nothing
+  if (!modal || !modalImage || !modalClose || !projectImage) return;
+
   // Open modal when the image is clicked
   projectImage.addEventListener('click', () => {
     modal.style.display = 'flex';
-    modalImage.src = projectImage.querySelector('img').src; // Set the modal image source
+    modalImage.src = projectImage.querySelector('img').src;
   });
 
   // Close modal when the close button is clicked
@@ -75,9 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Close modal when clicking outside the image
-  modal.addEventListener('click', (e) => {
-      modal.style.display = 'none';
-    });
+  modal.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
 
   // Close modal when pressing the Escape key
   document.addEventListener('keydown', (e) => {

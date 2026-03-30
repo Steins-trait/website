@@ -194,7 +194,6 @@
   justify-content: center;
   overflow-x: auto;
   gap: 3rem;
-  /* padding: 2rem 1rem; */
   scrollbar-width: thin;
   filter: invert(100%) grayscale(100%) opacity(.9);
   margin: 0 auto;
@@ -339,7 +338,6 @@
   max-width: 150px;
   max-height: 150px;
   object-fit: contain;
-  max-width: 150px;
 }
 
 .contact__info {
@@ -459,10 +457,11 @@
 
 .back-to-top__image:hover {
   transform: scale(1.2);
-
 }
 
-/* Work Experience */
+/* ==========================================
+   WORK EXPERIENCE
+========================================== */
 
 .work-experience .resume__cards {
   display: flex;
@@ -476,18 +475,19 @@
   border-radius: 12px;
   padding: 2rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  transition: transform 0.2s cubic-bezier(.4,2,.3,1), box-shadow 0.2s
+  transition: transform 0.2s cubic-bezier(.4,2,.3,1), box-shadow 0.2s;
 }
 
 .resume__card:hover {
   transform: scale(1.03);
   box-shadow: 0 8px 24px rgba(0,0,0,0.18);
-  transition: transform 0.2s cubic bezier(.4,2,.3,1), box-shadow 0.2s;
+  /* Fixed: was "cubic bezier" (missing hyphen), now correctly "cubic-bezier" */
+  transition: transform 0.2s cubic-bezier(.4,2,.3,1), box-shadow 0.2s;
 }
 
 .resume__header {
-  position: relative;        /* allow absolute positioning of logo */
-  padding-right: 88px;       /* reserve space so text doesn't flow under the logo */
+  position: relative;
+  padding-right: 88px;
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
@@ -495,7 +495,6 @@
   margin-bottom: 1rem;
 }
 
-/* place logo at the right, vertically centered, doesn't take layout space */
 .resume__logo {
   position: absolute;
   right: 1rem;
@@ -504,11 +503,10 @@
   width: 64px;
   height: 64px;
   object-fit: contain;
-  pointer-events: none; /* optional: make logo non-interactive so clicks hit the card */
-  border-radius: 6px;   /* optional */
+  pointer-events: none;
+  border-radius: 6px;
 }
 
-/* Responsive: stack on small screens and remove reserved padding */
 @media (max-width: 600px) {
   .resume__header {
     padding-right: 0;
@@ -518,7 +516,7 @@
     transform: none;
     width: 44px;
     height: 44px;
-    margin-left: auto; /* place at end of the flow (right) */
+    margin-left: auto;
   }
 }
 

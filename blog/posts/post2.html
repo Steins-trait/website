@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lessons from Collaborative Robotics | Abbas Mirza</title>
+  <link rel="stylesheet" href="/css/global.css" />
+  <link rel="stylesheet" href="/css/nav.css" />
+  <link rel="stylesheet" href="/css/blog.css" />
+  <link rel="shortcut icon" type="image/webp" href="/assets/images/weblogo.webp" />
+  <meta name="description" content="How our senior design team automated a CNC manufacturing task with a cobot system — cutting cycle time by 40% and delivering under $75K." />
+</head>
+<body>
+  <div id="nav-container"></div>
+  <script src="/js/nav-loader.js" defer></script>
+
+  <div class="post__featured">
+    <img
+      src="/assets/images/MEM-43-Poster.pptx.png"
+      alt="Senior design project poster — collaborative robot implementation for CNC bolt manufacturing"
+      class="post__featured-img"
+    />
+    <div class="post__featured-overlay"></div>
+  </div>
+
+  <article class="post__content">
+
+    <a href="/blog/" class="btn post__back">← Back to Blog</a>
+
+    <header class="post__header">
+      <span class="post__tag">Engineering</span>
+      <h1 class="post__title">Lessons from Collaborative Robotics</h1>
+      <p class="post__date">May 15, 2025</p>
+    </header>
+
+    <div class="post__body">
+
+      <p>
+        Our senior design team got paired with B&G Manufacturing, a machine shop that produces 
+        bolts on CNC lathes. The problem they handed us was straightforward on the surface: 
+        a worker was spending their entire shift manually loading and unloading parts into the 
+        lathe, the threading machine, and the inspection station. Repetitive, physically 
+        demanding, and not a great use of a skilled machinist. They wanted it automated — 
+        but on a budget, and without shutting down the floor to install a traditional 
+        industrial robot cell.
+      </p>
+
+      <p>
+        That last constraint was the key one. A traditional industrial robot is fast and 
+        powerful, but it needs a safety cage because it genuinely doesn't know if a person 
+        is in its path. That cage takes up floor space, disrupts the workflow around it, 
+        and costs money. A collaborative robot — a cobot — is designed differently. It has 
+        force/torque sensing that causes it to stop immediately on unexpected contact, which 
+        means it can work right alongside people without a cage. That's what made this 
+        feasible in their environment.
+      </p>
+
+      <h3>The end-effector is where the real work is</h3>
+
+      <p>
+        We were using a Universal Robots arm, which is a well-proven platform. But here's 
+        the thing — the robot arm itself is almost a solved problem at this point. What 
+        nobody sells you off the shelf is an end-effector designed for your specific part 
+        geometry, at your specific grip force, within the robot's payload limit, that won't 
+        damage the part. That's the actual engineering problem, and that's where we spent 
+        most of our time.
+      </p>
+
+      <p>
+        We went through three design iterations in SolidWorks before settling on a gripper 
+        design we were confident in. One thing that isn't obvious until you're doing it: 
+        the center of mass of the end-effector plus the part it's holding matters a lot. 
+        An offset center of mass creates a moment on the robot's wrist joint that shows up 
+        as positioning error and wear over time. We caught that early in CAD and adjusted 
+        the geometry before we ever printed anything, which saved us a headache later.
+      </p>
+
+      <div class="post__callout">
+        We also integrated a vibratory feeder bowl to orient and present parts to the robot 
+        consistently — because a cobot can't pick up a randomly tumbled bolt. The whole 
+        system is: feeder bowl → robot picks part → loads lathe → transfers to threader → 
+        drops at inspection. Every station had to talk to the next one.
+      </div>
+
+      <h3>ANSYS caught something we missed</h3>
+
+      <p>
+        Before we finalized the end-effector design, we ran static and fatigue analysis in 
+        ANSYS Workbench. The critical load case was a sudden stop — if the cobot hits its 
+        force threshold and halts abruptly mid-motion, the end-effector takes a significant 
+        impulse load. The FEA flagged a stress concentration at one of the mounting bracket 
+        corners that we hadn't caught visually. A fillet radius increase fixed it, redistributing 
+        the stress across a larger area. Small change, big difference in the fatigue life numbers.
+      </p>
+
+      <p>
+        We also did FMEA — Failure Mode and Effects Analysis — which meant systematically 
+        going through every component and asking "what if this fails, and what happens next?" 
+        Some of it felt like overkill at the time. Then one of the machinists on the floor 
+        mentioned an edge case where parts occasionally come off the lathe slightly out of 
+        spec and mentioned that our gripper needed to handle that gracefully. We had it in 
+        the FMEA. We'd already accounted for it. That felt good.
+      </p>
+
+      <h3>The numbers</h3>
+
+      <p>
+        After testing, the system reduced part cycle time from 9.4 minutes down to 5.5 minutes — 
+        over a 40% improvement. Total project cost came in under $75,000, which is significantly 
+        below the $100K–$250K range for comparable industry solutions. The return on investment 
+        works out to roughly one year, which is what the sponsor was looking for.
+      </p>
+
+      <p>
+        The manual handling reduction was also the part I was most personally glad about. 
+        The machinist who had been doing that task didn't lose their job — they got moved to 
+        higher-judgment work that the robot genuinely can't do. That's the outcome you want 
+        from automation. Not fewer people, better-used people.
+      </p>
+
+      <h3>What I'd tell someone starting this kind of project</h3>
+
+      <p>
+        Talk to the operators before you finalize anything. We caught two failure modes we 
+        hadn't considered because someone on the floor told us how parts actually behave 
+        in practice, as opposed to how they behave in the spec sheet. No simulation or CAD 
+        model captures that knowledge. It's just in the room, if you ask.
+      </p>
+
+      <p>
+        Also: budget extra time for integration. Every individual piece of our system 
+        worked fine in isolation. The first day we ran the full sequence end-to-end on 
+        the actual floor, several things did not work. That's normal, but plan for it. 
+        Integration is its own engineering problem and it will take longer than you think.
+      </p>
+
+    </div>
+  </article>
+
+  <div id="footer-container"></div>
+  <script src="/js/footer-loader.js"></script>
+</body>
+</html>
