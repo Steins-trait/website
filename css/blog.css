@@ -76,7 +76,6 @@
   border-color: var(--pink);
 }
 
-/* Left: featured image */
 .post-card__image-wrap {
   flex: 0 0 280px;
   overflow: hidden;
@@ -94,7 +93,6 @@
   transform: scale(1.04);
 }
 
-/* Right: content */
 .post-card__body {
   flex: 1;
   padding: 3rem 3rem 3rem 0;
@@ -126,7 +124,7 @@
   line-height: var(--line-height-small);
 }
 
-/* Override global h2::after — cards don't need the underline bar */
+/* Override global h2::after on card titles */
 .post-card__title::after {
   display: none;
 }
@@ -166,7 +164,6 @@
   opacity: 0.75;
 }
 
-/* Stack on mobile */
 @media (max-width: 700px) {
   .post-card {
     flex-direction: column;
@@ -202,7 +199,6 @@
   display: block;
 }
 
-/* Gradient fade from image into black page background */
 .post__featured-overlay {
   position: absolute;
   inset: 0;
@@ -222,11 +218,6 @@
   max-width: var(--container-normal-width);
   margin: 0 auto;
   padding: var(--gutter-medium) var(--gutter-normal) var(--gutter-huge);
-}
-
-.post__back {
-  display: inline-block;
-  margin-bottom: var(--gutter-normal);
 }
 
 .post__header {
@@ -255,7 +246,7 @@
   margin-bottom: 1rem;
 }
 
-/* Override global h2::after */
+/* Override global h2::after on post titles */
 .post__title::after {
   display: none;
 }
@@ -288,7 +279,6 @@
   border-left: 3px solid var(--pink);
 }
 
-/* h3 inside body should NOT get the global h3 bottom margin — reset it */
 .post__body h3::after {
   display: none;
 }
@@ -318,7 +308,6 @@
   border-color: var(--pink);
 }
 
-/* Pull-quote / callout block */
 .post__callout {
   border-left: 3px solid var(--pink);
   background: rgba(255, 50, 88, 0.05);
@@ -328,6 +317,138 @@
   font-size: var(--font-size-small);
   color: var(--white-1);
   font-style: italic;
+}
+
+/* ==========================================
+   POST NAVIGATION (prev / all posts / next)
+========================================== */
+
+.post__nav {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: var(--gutter-normal) 0;
+  margin-bottom: var(--gutter-normal);
+}
+
+.post__nav--bottom {
+  margin-top: var(--gutter-medium);
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-top: 1px solid #2e2e2e;
+}
+
+.post__nav-link {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--white-1);
+  max-width: 38%;
+  transition: color 0.2s ease;
+}
+
+.post__nav-link:hover {
+  color: var(--pink);
+}
+
+/* Kill the global a::after hover behaviour inside nav links */
+.post__nav-link::after {
+  display: none;
+}
+
+.post__nav-link--prev {
+  align-items: flex-start;
+}
+
+.post__nav-link--next {
+  align-items: flex-end;
+  text-align: right;
+}
+
+/* Empty spacer so the All Posts button stays centred when one side is missing */
+.post__nav-spacer {
+  flex: 1;
+  max-width: 38%;
+}
+
+.post__nav-label {
+  font-size: 1.3rem;
+  font-family: 'Jost', sans-serif;
+  color: #666;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.post__nav-title {
+  font-size: 1.5rem;
+  font-family: 'Jost', sans-serif;
+  line-height: 1.4;
+}
+
+/* Centre button — override .btn padding so it doesn't look oversized in the nav */
+.post__nav-home.btn {
+  flex: 0 0 auto;
+  align-self: center;
+  white-space: nowrap;
+  font-size: 1.5rem;
+  padding: 0.8rem 2.5rem;
+}
+
+@media (max-width: 600px) {
+  .post__nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .post__nav-link {
+    max-width: 100%;
+  }
+
+  .post__nav-spacer {
+    display: none;
+  }
+
+  .post__nav-link--next {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .post__nav-home.btn {
+    align-self: flex-start;
+  }
+}
+
+/* ==========================================
+   BACK TO TOP BUTTON
+========================================== */
+
+.back-to-top {
+  position: fixed;
+  bottom: 4rem;
+  right: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5.5rem;
+  width: 5.5rem;
+  background-color: var(--pink);
+  border-radius: 50%;
+  z-index: 10;
+  visibility: hidden;
+  transition: all 0.4s;
+}
+
+.back-to-top__image {
+  height: 70%;
+  transition: all 0.3s;
+}
+
+.back-to-top__image:hover {
+  transform: scale(1.2);
 }
 
 /* ==========================================

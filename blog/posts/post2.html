@@ -25,7 +25,8 @@
 
   <article class="post__content">
 
-    <a href="/blog/" class="btn post__back">← Back to Blog</a>
+    <!-- Top navigation — populated by blog-nav.js -->
+    <nav class="post__nav" id="post-nav-top"></nav>
 
     <header class="post__header">
       <span class="post__tag">Engineering</span>
@@ -147,9 +148,21 @@
       </p>
 
     </div>
+
+    <!-- Bottom navigation — populated by blog-nav.js -->
+    <nav class="post__nav post__nav--bottom" id="post-nav-bottom"></nav>
+
   </article>
 
   <div id="footer-container"></div>
   <script src="/js/footer-loader.js"></script>
+
+  <a href="#" class="back-to-top" title="Back to Top">
+    <img src="/assets/images/arrow-up.svg" alt="Back to Top" class="back-to-top__image" />
+  </a>
+
+  <script src="/js/blog-posts.js"></script>
+  <script src="/js/blog-nav.js"></script>
+  <script src="/js/blog.js"></script>
 </body>
 </html>
