@@ -15,7 +15,6 @@
   <div id="nav-container"></div>
   <script src="/js/nav-loader.js" defer></script>
 
-  <!-- HERO -->
   <header class="blog__hero">
     <div class="blog__hero-text">
       <h1 class="heading-primary">📝 The Blog</h1>
@@ -23,11 +22,34 @@
     </div>
   </header>
 
-  <!-- POST FEED -->
   <main>
     <section class="blog__feed">
       <div class="row">
         <h2>All Posts</h2>
+
+        <!-- Post 4 — newest -->
+        <a href="/blog/posts/post4.html" class="post-card">
+          <div class="post-card__image-wrap">
+            <img
+              src="/assets/images/combined_distractors.gif"
+              alt="Fusion 360 CAD render of the expandable height trial scissor jack design"
+              class="post-card__image"
+            />
+          </div>
+          <div class="post-card__body">
+            <span class="post-card__tag">Medical Device Design</span>
+            <h2 class="post-card__title">Two Designs for a Spine Surgery Challenge</h2>
+            <p class="post-card__excerpt">
+              Globus Medical sent me a design challenge as part of their interview process.
+              Design an expandable height trial for thoracolumbar corpectomy surgery. Collapsed
+              under 18mm, maximize expansion, 50kg lift, hand-operated. No prescribed mechanism,
+              no given approach. I designed two completely different solutions and presented them
+              both.
+            </p>
+            <p class="post-card__meta">August 15, 2025</p>
+            <span class="post-card__link">Read more →</span>
+          </div>
+        </a>
 
         <!-- Post 1 -->
         <a href="/blog/posts/post1.html" class="post-card">
@@ -110,6 +132,7 @@
           - post-card__title
           - post-card__excerpt (use the opening lines of the actual post)
           - post-card__meta date
+          Also add the entry to /js/blog-posts.js at the top of the array.
         -->
 
       </div>
