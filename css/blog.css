@@ -1,5 +1,5 @@
 /* ==========================================
-   BLOG INDEX — HERO
+  BLOG INDEX — HERO
 ========================================== */
 
 .blog__hero {
@@ -43,7 +43,7 @@
 }
 
 /* ==========================================
-   BLOG INDEX — POST FEED
+  BLOG INDEX — POST FEED
 ========================================== */
 
 .blog__feed {
@@ -181,7 +181,7 @@
 }
 
 /* ==========================================
-   INDIVIDUAL POST — FEATURED IMAGE
+  INDIVIDUAL POST — FEATURED IMAGE
 ========================================== */
 
 .post__featured {
@@ -211,7 +211,7 @@
 }
 
 /* ==========================================
-   INDIVIDUAL POST — READING COLUMN
+  INDIVIDUAL POST — READING COLUMN
 ========================================== */
 
 .post__content {
@@ -258,7 +258,7 @@
 }
 
 /* ==========================================
-   INDIVIDUAL POST — BODY TYPOGRAPHY
+  INDIVIDUAL POST — BODY TYPOGRAPHY
 ========================================== */
 
 .post__body {
@@ -320,7 +320,7 @@
 }
 
 /* ==========================================
-   POST NAVIGATION (prev / all posts / next)
+  POST NAVIGATION (prev / all posts / next)
 ========================================== */
 
 .post__nav {
@@ -423,7 +423,7 @@
 }
 
 /* ==========================================
-   BACK TO TOP BUTTON
+  BACK TO TOP BUTTON
 ========================================== */
 
 .back-to-top {
@@ -452,7 +452,7 @@
 }
 
 /* ==========================================
-   SHARED FADE ANIMATION
+  SHARED FADE ANIMATION
 ========================================== */
 
 @keyframes fadeInUp {
