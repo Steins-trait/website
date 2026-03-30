@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="/css/nav.css" />
   <link rel="stylesheet" href="/css/blog.css" />
   <link rel="shortcut icon" type="image/webp" href="/assets/images/weblogo.webp" />
-  <meta name="description" content="A walkthrough of designing a patient-specific PEKK vertebral implant — from CT segmentation to 3D-printed device." />
+  <meta name="description" content="A walkthrough of designing a patient-specific PEKK vertebral implant, from CT segmentation to 3D-printed device." />
 </head>
 <body>
   <div id="nav-container"></div>
@@ -30,127 +30,131 @@
     <header class="post__header">
       <span class="post__tag">Research</span>
       <h1 class="post__title">How I Designed a Custom PEKK Implant</h1>
-      <p class="post__date">April 30, 2025</p>
+      <p class="post__date">March 10, 2025</p>
     </header>
 
     <div class="post__body">
 
       <p>
-        So I'm in the summer term of my first year of grad school and I get the opportunity to join the Drexel Implant Research Center, working in collaboration with Thomas Jefferson University. 
-        The project: develop a patient-specific design envelope for spinal implants made from 
-        a high-performance polymer called PEKK, aimed at patients with metastatic spinal lesions. 
-        I said yes immediately... maybe before I fully understood what I was signing up for.
+        In the fall of 2024 I got the opportunity to join the Drexel Implant Research Center,
+        working in collaboration with Thomas Jefferson University. The project was to develop
+        a patient-specific design envelope for spinal implants made from a high-performance
+        polymer called PEKK, aimed at patients with metastatic spinal lesions. I said yes
+        immediately... maybe before I fully understood what I was signing up for.
       </p>
 
       <p>
-        The core problem is this: spinal implants that replace a damaged vertebra are traditionally 
-        made from titanium and come in standard sizes. But every spine is different! Different 
-        curvature, different vertebral height, different endplate geometry. An off-the-shelf implant 
-        is always a compromise. What we were building was a pipeline where you start with the 
-        patient's actual CT scan and end up with a device designed around their specific anatomy.
+        The core problem is this: spinal implants that replace a damaged vertebra are
+        traditionally made from titanium and come in standard sizes. But every spine is
+        different. Different curvature, different vertebral height, different endplate geometry.
+        An off-the-shelf implant is always a compromise. What we were building was a pipeline
+        where you start with the patient's actual CT scan and end up with a device designed
+        around their specific anatomy.
       </p>
 
       <h3>Why not just use titanium?</h3>
 
       <p>
-        This was my first question too. Titanium is strong, biocompatible, and has decades of 
-        clinical history behind it. But there's a real catch... it's radiopaque. It shows up as a 
-        bright white artifact on post-operative imaging, which means once it's implanted you can't 
-        clearly see what's happening at the fusion site. Is the bone integrating? Is something 
-        going wrong? You're partly flying blind.
+        This was my first question too. Titanium is strong, biocompatible, and has decades of
+        clinical history behind it. But there's a real catch. It's radiopaque, meaning it shows
+        up as a bright white artifact on post-operative imaging, which means once it's implanted
+        you can't clearly see what's happening at the fusion site. Is the bone integrating? Is
+        something going wrong? You're partly flying blind.
       </p>
 
       <p>
-        PEKK is radiolucent, nearly invisible on X-ray and CT, so surgeons can actually 
-        monitor bone healing after surgery. It also has a stiffness closer to cortical bone, 
-        around 3 to 4 GPa. That matters because if your implant is dramatically stiffer than 
-        the surrounding bone, the bone stops bearing load and starts to atrophy over time. 
-        That's stress shielding, and it's one of the leading reasons implants loosen years down 
-        the line. And crucially for this project: PEKK can be 3D printed, which is what 
-        makes point-of-care fabrication actually feasible.
+        PEKK is radiolucent, so nearly invisible on X-ray and CT, which means surgeons can
+        actually monitor bone healing after surgery. It also has a stiffness closer to cortical
+        bone, around 3 to 4 GPa. That matters because if your implant is dramatically stiffer
+        than the surrounding bone, the bone stops bearing load and starts to atrophy over time.
+        That's stress shielding, and it's one of the leading reasons implants loosen years down
+        the line. And crucially for this project... PEKK can be 3D printed, which is what makes
+        point-of-care fabrication actually feasible.
       </p>
 
       <h3>Step one: getting the geometry out of the scan</h3>
 
       <p>
-        The first thing I had to do was take raw DICOM files, the image format CT scanners 
-        output, and turn them into a usable 3D model of the patient's vertebrae. I used 
-        Dicom to Print (D2P) and 3D Slicer to do this, in a process called segmentation: 
+        The first thing I had to do was take raw DICOM files, the image format CT scanners
+        output, and turn them into a usable 3D model of the patient's vertebrae. I used
+        Dicom to Print (D2P) and 3D Slicer to do this, in a process called segmentation:
         isolating the structure you care about from everything else in the scan.
       </p>
 
       <p>
-        In theory, you set a threshold for bone density and the software highlights bone. 
-        In practice, the boundary between bone and soft tissue is never that clean. I ended up 
-        doing a lot of manual slice-by-slice correction — going through hundreds of 2D 
-        cross-sections and painting in or erasing pixels where the algorithm got it wrong. 
-        It is genuinely tedious work. I spent more time on segmentation than any other single 
-        step, and I came to understand why pretty fast — bad geometry here means a poorly 
-        fitting implant downstream. You can't fix it later. So you fix it now.
+        In theory, you set a threshold for bone density and the software highlights bone.
+        In practice, the boundary between bone and soft tissue is never that clean. I ended up
+        doing a lot of manual slice-by-slice correction, going through hundreds of 2D
+        cross-sections and painting in or erasing pixels where the algorithm got it wrong.
+        It is genuinely tedious work. I spent more time on segmentation than any other single
+        step, and I came to understand why pretty fast. Bad geometry here means a poorly
+        fitting implant downstream. You can't fix it later, so you fix it now.
       </p>
 
       <p>
-        The output is an STL mesh representing the patient's vertebral anatomy, and that mesh 
+        The output is an STL mesh representing the patient's vertebral anatomy, and that mesh
         becomes the reference for everything that follows.
       </p>
 
       <h3>Designing the implant</h3>
 
       <p>
-        With a clean mesh as a reference body, the actual implant design happens in CAD. 
-        We were developing a design envelope for cervical, thoracic, and lumbar regions — 
-        so not one implant, but a range of boundary designs that could accommodate the 
-        anatomical variation across different patient cases.
+        With a clean mesh as a reference body, the actual implant design happened in CAD.
+        We were developing a design envelope for cervical, thoracic, and lumbar regions, so
+        not one implant but a range of boundary designs that could accommodate the anatomical
+        variation across different patient cases.
       </p>
 
       <p>
-        There were a lot of constraints pulling in different directions at once. The implant 
-        has to match the endplate geometry of the vertebrae above and below it. It has to 
-        restore the correct disc height. It needs regions of internal porosity to allow bone 
-        ingrowth. And it has to actually be printable — overhangs beyond about 45 degrees 
-        cause problems in FFF printing, and you obviously can't put support structures inside 
+        There were a lot of constraints pulling in different directions at once. The implant
+        has to match the endplate geometry of the vertebrae above and below it. It has to
+        restore the correct disc height. It needs regions of internal porosity to allow bone
+        ingrowth. And it has to actually be printable. Overhangs beyond about 45 degrees
+        cause problems in FFF printing, and you obviously can't put support structures inside
         something going into someone's spine.
       </p>
 
       <p>
-        GD&T — Geometric Dimensioning and Tolerancing — became really important here because 
-        we were designing for surgical fit. Too loose and the implant can migrate. Too tight 
-        and it can't be seated properly during the procedure. Getting those tolerances defined 
-        and testable is part of what separates this from just a CAD exercise — it's what makes 
-        the design regulatory-ready.
+        GD&T became really important here because we were designing for surgical fit.
+        Too loose and the implant can migrate. Too tight and it can't be seated properly
+        during the procedure. Getting those tolerances defined and testable is part of what
+        separates this from just a CAD exercise. It's what makes the design regulatory-ready,
+        aligned with FDA Design Control and ISO 13485 documentation practices.
       </p>
 
       <h3>Testing it</h3>
 
       <p>
-        Once we had designs, I executed mechanical testing following ASTM F2077 — the standard 
-        for intervertebral body fusion devices. Static and cyclic loading, verifying the implant 
-        holds up under the forces it would see in an actual patient. Running a cyclic test and 
-        watching the load-displacement curve stay stable across thousands of cycles without 
-        failure was genuinely one of the better moments of my grad school experience so far. 
-        All that time spent on segmentation suddenly felt completely worth it.
+        Once we had designs, I executed mechanical testing following ASTM F2077, the standard
+        for intervertebral body fusion devices. Static and cyclic loading, verifying the implant
+        holds up under the forces it would see in an actual patient. Running a cyclic test and
+        watching the load-displacement curve stay stable across thousands of cycles without
+        failure was genuinely one of the better moments of the whole project. All that time
+        spent on segmentation suddenly felt completely worth it.
       </p>
 
-      <h3>What this has taught me</h3>
+      <h3>What this taught me</h3>
 
       <p>
-        The biggest thing is how truly interdisciplinary this work is. In a single week I might 
-        be doing image processing, parametric CAD, mechanical testing, and reading FDA Design 
-        Control documentation. A gap in any one area shows up as a problem somewhere else, 
-        usually at the worst possible time.
-      </p>
-
-      <p>
-        Working directly with surgeons to define requirements also completely changed how I 
-        approach design. They'll tell you things about how an implant gets placed intraoperatively 
-        that you would never think of sitting at a workstation. That input is what closes the 
-        gap between something that works in a test fixture and something that works in an 
-        operating room. Two very different bars.
+        The biggest thing was how truly interdisciplinary this work is. In a single week I might
+        be doing image processing, parametric CAD, mechanical testing, and reading regulatory
+        documentation. A gap in any one area shows up as a problem somewhere else, usually at
+        the worst possible time.
       </p>
 
       <p>
-        This project is still ongoing and I'll keep updating this post. If you're working on 
-        anything in the medical device or additive manufacturing space, feel free to reach out!
+        Working directly with surgeons to define requirements also completely changed how I
+        approach design. They'll tell you things about how an implant gets placed
+        intraoperatively that you would never think of sitting at a workstation. That input is
+        what closes the gap between something that works in a test fixture and something that
+        works in an operating room. Two very different bars.
+      </p>
+
+      <p>
+        I wrapped up this project in early 2025 when I graduated, but it was one of the most
+        technically demanding and rewarding things I worked on during my time at Drexel.
+        If you're working on anything in the medical device or additive manufacturing space,
+        feel free to reach out!
       </p>
 
     </div>
