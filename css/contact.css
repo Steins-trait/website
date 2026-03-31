@@ -1,0 +1,112 @@
+/* ==========================================
+   CONTACT — HERO
+========================================== */
+
+.contact-page__hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 0 var(--gutter-normal);
+}
+
+.contact-page__hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 1)),
+    url('/assets/images/myheader.webp') no-repeat center center;
+  background-size: cover;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  z-index: -1;
+}
+
+.contact-page__hero-text h1 {
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+.contact-page__hero-text p {
+  font-size: var(--font-size-medium);
+  max-width: var(--container-medium-width);
+  margin: 1.5rem auto 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.4s;
+  opacity: 0;
+}
+
+/* ==========================================
+   CONTACT — MAIN SECTION
+========================================== */
+
+.contact-page__main {
+  padding: var(--gutter-huge) 0;
+}
+
+.contact-page__blurb {
+  max-width: var(--container-normal-width);
+  font-size: var(--font-size-normal);
+  line-height: 1.9;
+  color: var(--white-1);
+  margin-bottom: var(--gutter-medium);
+}
+
+/* ==========================================
+   CONTACT — LINK CARDS
+========================================== */
+
+.contact-page__cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.contact-page__card {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid #2e2e2e;
+  border-radius: 14px;
+  padding: 2.5rem 2rem;
+  text-decoration: none;
+  color: var(--white-1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.contact-page__card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 36px rgba(255, 50, 88, 0.1);
+  border-color: var(--pink);
+  color: var(--white);
+}
+
+.contact-page__card-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 1.3rem;
+  color: #666;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contact-page__card-value {
+  font-family: 'Jost', sans-serif;
+  font-size: 1.7rem;
+  word-break: break-word;
+}
+
+/* ==========================================
+   SHARED ANIMATION
+========================================== */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

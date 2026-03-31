@@ -12,6 +12,7 @@
   text-align: center;
   overflow: hidden;
   padding: 0 var(--gutter-normal);
+  z-index: 0;
 }
 
 .blog__hero::before {

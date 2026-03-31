@@ -12,6 +12,7 @@
   text-align: center;
   overflow: hidden;
   padding: 0 var(--gutter-normal);
+  z-index: 0;
 }
 
 .hobbies__hero::before {
@@ -149,6 +150,7 @@ a.hobby__card {
   text-align: center;
   overflow: hidden;
   padding: 0 var(--gutter-normal);
+  z-index: 0;
 }
 
 /* Each hobby page can pass a different --hero-img variable via inline style,
@@ -238,43 +240,68 @@ a.hobby__card {
   letter-spacing: 0.04em;
 }
 
-/* Real image tile (use when you drop actual photos in) */
+/* ==========================================
+   PHOTOGRAPHY GALLERY — LAYOUT FIX
+   Replace the existing .gallery__grid and
+   .gallery__item rules in hobbies.css with
+   these two blocks.
+========================================== */
+
+.gallery__grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gutter-huge);   /* was 4rem, now 12rem */
+  margin-top: var(--gutter-normal);
+  align-items: center;       /* centre narrow images horizontally */
+}
+
 .gallery__item {
-  aspect-ratio: 4 / 3;
+  position: relative;
+  width: fit-content;        /* key fix — container = image width */
+  max-width: 100%;           /* never overflow on mobile */
   border-radius: 12px;
   overflow: hidden;
-  cursor: zoom-in;
-  position: relative;
 }
 
 .gallery__item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
   display: block;
-}
-
-.gallery__item:hover img {
-  transform: scale(1.04);
+  max-width: 100%;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+  object-fit: unset;
 }
 
 .gallery__item-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1rem 1.5rem;
-  background: linear-gradient(transparent, rgba(0,0,0,0.7));
-  color: var(--white);
+  position: static;
+  background: transparent;
+  padding: 0.8rem 0.2rem 0;
   font-size: 1.4rem;
   font-family: 'Jost', sans-serif;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  color: #888;
+  font-style: italic;
+  opacity: 1;
+  transition: none;
+  line-height: 1.5;
+  max-width: 100%;
 }
 
-.gallery__item:hover .gallery__item-caption {
-  opacity: 1;
+.gallery__item::after {
+  content: 'Abbas Mirza \00A9 2026';
+  position: absolute;
+  bottom: 1rem;
+  right: 1.2rem;
+  font-family: 'Jost', sans-serif;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.06em;
+  pointer-events: none;
+  user-select: none;
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.8),
+    0 0 8px rgba(0, 0, 0, 0.5);
+  z-index: 2;
 }
 
 /* ==========================================
