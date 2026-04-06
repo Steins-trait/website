@@ -189,10 +189,15 @@
   position: relative;
   width: 100%;
   height: 480px;
+  flex-shrink: 0;        /* ← this is the key fix */
   overflow: hidden;
+  margin-top: 45px;      /* clears the fixed nav */
 }
 
 .post__featured-img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
