@@ -35,57 +35,31 @@
     <div class="post__body">
 
       <p>
-        Globus Medical sent me a design challenge as part of their interview process. The brief
-        was short: design an expandable height trial instrument for thoracolumbar corpectomy
-        surgery. Requirements were collapsed height under 18mm, maximize expansion, handle a
-        50kg lift load, hand-operated only, approximately 150mm long, visible tip placement,
-        and readable height display. That's it. No prescribed mechanism, no given approach,
-        no hint at which direction to go.
+        Globus Medical sent me a design challenge as part of their interview process. The brief was short: design an expandable height trial instrument for thoracolumbar corpectomy surgery. Requirements were collapsed height under 18mm, maximize expansion, handle a 50kg lift load, hand-operated only, approximately 150mm long, visible tip placement, and readable height display. That's it, the whole instruction set, with no other help, no hint at which direction to go.
       </p>
 
       <p>
-        I decided to design two completely different solutions from scratch and present them
-        both. Here's how that went.
+        I decided to design two completely different solutions from scratch and present them both. Here's how that went.
       </p>
 
       <h3>The clinical problem first</h3>
 
       <p>
-        In a corpectomy, a damaged or diseased vertebral body gets removed entirely, usually
-        because of trauma or a metastatic tumor. That leaves a gap between the two adjacent
-        healthy endplates. The surgeon needs to fill that gap with an implant, but every
-        patient's gap is a different size. Wrong implant height means the spine isn't restored
-        to the right geometry, and that creates biomechanical problems downstream.
+        In a corpectomy, a damaged or diseased vertebral body gets removed entirely, usually because of either trauma or a metastatic tumor. That leaves a gap between the two adjacent healthy endplates. The surgeon needs to fill that gap with an implant, but every patient's gap is a different size. Wrong implant height means the spine isn't restored to the right geometry, and that creates biomechanical problems downstream.
       </p>
 
       <p>
-        A height trial solves this. You insert it collapsed so it fits through the gap, expand
-        it until it fills the space and distracts the vertebral bodies apart, read the height,
-        then choose the correctly sized permanent implant. It sounds simple but the dimensional
-        constraints are genuinely tight. The thoracic spine starts at vertebral body heights
-        around 14.9mm at T1 and goes up to about 28mm at L5. The device has to fit into the
-        smallest space and reach the largest, all while surviving 490.5 N of compressive load
-        from body weight.
+        A height trial solves this. You insert it collapsed so it fits through the gap, expand it until it fills the space and distracts the vertebral bodies apart, read the height, then choose the correctly sized permanent implant. It sounds simple but the dimensional constraints are pretty tight. The thoracic spine starts at vertebral body heights around 14.9mm at T1 and goes up to about 28mm at L5. The device has to fit into the smallest space and reach the largest, all while surviving 490.5 N of compressive load from body weight.
       </p>
 
       <h3>Design 1: the scissor jack approach</h3>
 
       <p>
-        The first design uses a dual-layer scissor jack driven by a lead screw. The surgeon
-        turns a handle which rotates the screw, the screw drives the scissor assemblies
-        horizontally inward, and that horizontal compression forces the jaw plates apart
-        vertically. Classic scissor jack geometry, miniaturized to fit inside a 17.393mm
-        collapsed height.
+        The first design uses a dual-layer scissor jack driven by a lead screw. The surgeon turns a handle which rotates the screw, the screw drives the scissor assemblies horizontally inward, and that horizontal compression forces the jaw plates apart vertically. Classic scissor jack geometry, miniaturized to fit inside a 17.393mm collapsed height.
       </p>
 
       <p>
-        Funnily enough my inspiration for this actually came to me when one of the tires on my
-        wheels exploded as I was driving down the highway and I had to put my spare on. As I was
-        using that car jack to lift the car up, it hit me that I was looking at exactly what I
-        needed for this challenge. A scissor jack! Obviously its one of the best compact
-        mechanical systems for lifting heavy loads vertically. Duh! That same night I sat down
-        and started figuring out how to model a novel scissor jack mechanism in fusion 360 that
-        would match the challenge parameters.
+        Funnily enough my inspiration for this actually came to me when one of the tires on my wheels exploded as I was driving down the highway and I had to put my spare on. As I was using that car jack to lift the car up, it hit me that I was looking at exactly what I needed for this challenge. A scissor jack! Obviously its one of the best compact mechanical systems for lifting heavy loads vertically. Duh! That same night I sat down and started figuring out how to model a novel scissor jack mechanism in fusion 360 that would match the challenge parameters.
       </p>
 
     <figure class="post__figure--inset post__figure">
@@ -97,21 +71,9 @@
         My inspiration
     </figcaption>
     </figure>
-        <!--
-        IMAGE: The collapsed and expanded side-by-side from slide 5 of the PPTX,
-        showing the Fusion 360 model at 17.393 mm and 30.643 mm with measurement annotations.
-        In PowerPoint: right-click the image on slide 5 > Save as Picture.
-        Save as: /assets/images/scissor-jack-range.png
-    -->
 
       <p>
-        The interesting part was working out the force chain using virtual work. The principle
-        is simple: in a frictionless rigid linkage, input work equals output work. What I
-        found was that at the starting position, the geometric ratio between vertical jaw
-        displacement and horizontal screw displacement was 4.625. That means for every 1mm
-        the scissors close horizontally, the jaw moves 4.625mm vertically. By force-velocity
-        duality, that same ratio applies in reverse to forces. The lead screw needs to generate
-        4.625 times the required distraction force.
+        The interesting part was working out the force chain using virtual work. The principle is simple: in a frictionless rigid linkage, input work equals output work. What I found was that at the starting position, the geometric ratio between vertical jaw displacement and horizontal screw displacement was 4.625. That means for every 1mm the scissors close horizontally, the jaw moves 4.625mm vertically. By force-velocity duality, that same ratio applies in reverse to forces. The lead screw needs to generate 4.625 times the required distraction force.
       </p>
     
 <figure class="post__figure">
@@ -121,58 +83,41 @@
           class="post__figure-img"
         />
         <figcaption class="post__figure-caption">
-          Design 1 collapsed (17.393 mm) and expanded (30.643 mm). The 0.607 mm margin
-          below the 18 mm requirement is tight enough that tolerance stack-up management
-          is non-negotiable during manufacturing.
+          Design 1 collapsed (17.393 mm) and expanded (30.643 mm). The 0.607 mm margin below the 18 mm requirement is tight enough that tolerance stack-up management is non-negotiable during manufacturing.
         </figcaption>
       </figure>
 
       <p>
-        So instead of the screw needing to produce 490.5 N... it needs to produce 2,268.5 N.
-        That was a sobering number to write down. But it's not an error in the design, it's
-        a geometric consequence that you document and account for. The good news is that the
-        lead screw handles it easily, and the mechanical advantage actually improves as the
-        scissor opens further, so the worst case is always right at the starting position.
+        So instead of the screw needing to produce 490.5 N... it needs to produce 2,268.5 N. That was a sobering number to write down. But it's not an error in the design, it's a geometric consequence that you document and account for. The good news is that the lead screw handles it easily, and the mechanical advantage actually improves as the scissor opens further, so the worst case is always right at the starting position.
       </p>
 
       <p>
-        For the lead screw itself I ran a parametric study on pitch selection, which turned
-        out to be more consequential than I expected. At 1.0mm pitch the self-locking margin
-        is 2.51x, meaning the thread friction is 2.51 times what would be needed for the
-        screw to back-drive under load. That's the right choice. At 2.0mm pitch the margin
-        drops to 1.26x, which sounds okay until you think about repeated autoclave sterilization
-        cycles changing the surface roughness of the stainless steel threads. That 1.26x margin
-        could drift below the threshold. Not a risk worth taking in a surgical instrument.
+        For the lead screw itself I ran a parametric study on pitch selection, which turned out to be more consequential than I expected. At 1.0mm pitch the self-locking margin is 2.51x, meaning the thread friction is 2.51 times what would be needed for the screw to back-drive under load. That's the right choice. At 2.0mm pitch the margin drops to 1.26x, which sounds okay until you think about repeated autoclave sterilization cycles changing the surface roughness of the stainless steel threads. That 1.26x margin could drift below the threshold. Not a risk worth taking in a surgical instrument.
       </p>
-
+      <figure class="post__figure">
+        <img
+          src="/assets/images/Globus_Challenge/Pitch-Parametric-Study.png"
+          alt="Pitch Parametric Study slide detailing 3 different pitches and their respective values for the given parameters"
+          class="post__figure-img"
+        />
+        <figcaption class="post__figure-caption">
+          Pitch Parametric Study slide detailing 3 different pitches and their respective values for the given parameters.
+        </figcaption>
+      </figure>
       <p>
-        The height readout for Design 1 is a laser-etched millimeter scale on the lead screw
-        shaft that moves past a stationary collar on the body of the instrument. Exactly like
-        reading a micrometer. One important detail: the scale markings are NOT uniformly spaced.
-        The relationship between screw rotation and jaw height is nonlinear due to the scissor
-        geometry, so each millimeter mark has to be placed at the screw position that corresponds
-        to that actual jaw height from the kinematic model. A uniform scale would give wrong
-        readings. The engravings go 0.15mm deep into the steel so they survive any sterilization
-        process without fading.
+        The height readout for Design 1 is a laser-etched millimeter scale on the lead screw shaft that moves past a stationary collar on the body of the instrument. Exactly like reading a micrometer. One important detail: the scale markings are NOT uniformly spaced. The relationship between screw rotation and jaw height is nonlinear due to the scissor geometry, so each millimeter mark has to be placed at the screw position that corresponds to that actual jaw height from the kinematic model. A uniform scale would give wrong readings. The engravings go 0.15mm deep into the steel so they survive any sterilization process without fading.
       </p>
 
       <h3>Design 2: Pascal's Law does the lifting</h3>
 
       <p>
-        The second design came from asking a different question: what if there were no mechanical
-        linkage in the head at all? The answer was hydraulics.
+        The second design came from asking a different question: what if there were no mechanical linkage in the head at all? The answer was hydraulics.
       </p>
 
-      <!--
-        IMAGE: The hydraulic plunger Fusion 360 model from the PPTX cover slide (slide 20),
-        showing the full instrument with the curved hydraulic tube connecting the handle to the tip.
-        Right-click the CAD render on slide 20 > Save as Picture.
-        Save as: /assets/images/hydraulic-plunger-render.png
-      -->
       <figure class="post__figure">
         <img
           src="/assets/images/Globus_Challenge/hydraulic-plunger-render.gif"
-          alt="Fusion 360 model of the hydraulic plunger distractor showing the curved saline channel connecting handle to instrument tip"
+          alt="Fusion 360 model of the hydraulic plunger distractor showing a curved saline channel and a curved handle."
           class="post__figure-img"
         />
         <figcaption class="post__figure-caption">
@@ -221,13 +166,22 @@
           class="post__figure-img"
         />
         <figcaption class="post__figure-caption">
+          Fusion 360 model of the hydraulic head showing the slave piston extended to 27mm expanded height
+        </figcaption>
+      </figure>
+      <!-- TODO: right-click the cutaway image on slide 23 in PowerPoint > Save as Picture > save as hydraulic-head-cutaway.png -->
+            <figure class="post__figure">
+        <img
+          src="/assets/images/Globus_Challenge/Hydraulic-section-view.png"
+          alt="Fusion 360 model of the hydraulic head showing the slave piston extended to 27mm expanded height"
+          class="post__figure-img"
+        />
+        <figcaption class="post__figure-caption">
           Cutaway of the hydraulic head at full expansion (27mm). The piston extending above
           the cylinder rim is also the primary height readout — the exposed length directly
           equals the expansion above the 14mm baseline. No conversion, no arithmetic.
         </figcaption>
       </figure>
-      <!-- TODO: right-click the cutaway image on slide 23 in PowerPoint > Save as Picture > save as hydraulic-head-cutaway.png -->
-
       <p>
         For the wall thickness of the slave cylinder I originally used thin-wall hoop stress
         assumptions. When I went back and checked the geometry, the wall-to-radius ratio came
