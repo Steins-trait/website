@@ -6,7 +6,7 @@
     transform: translateX(-50%);
     z-index: 2;
     animation: bounce 2s infinite;
-    transition: opactiy 0.4s ease;
+    transition: opacity 0.4s ease;
   }
   
   .scroll-cue--hidden {
