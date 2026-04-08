@@ -8,8 +8,16 @@
   <link rel="stylesheet" href="/css/nav.css" />
   <link rel="stylesheet" href="/css/blog.css" />
   <link rel="shortcut icon" type="image/webp" href="/assets/images/weblogo.webp" />
-  <meta name="description" content="A walkthrough of designing a patient-specific PEKK vertebral implant, from CT segmentation to 3D-printed device." />
+  <meta property="og:type" content="article" />
+<meta property="og:site_name" content="Abbas Mirza" />
+<meta property="og:title" content="How I Designed a Custom PEKK Implant" />
+<meta property="og:description" content="A walkthrough of designing a patient-specific PEKK vertebral implant, from CT segmentation to 3D-printed device." />
+<meta property="og:image" content="https://abbas-mirza.com/assets/images/MRSegmentation.png" />
+<meta property="og:url" content="https://abbas-mirza.com/blog/posts/post1.html" />
+<meta name="twitter:card" content="summary_large_image" />
 </head>
+<div id="analytics-container"></div>
+<script src="/js/analytics-loader.js" defer></script>
 <body>
   <div id="nav-container"></div>
   <script src="/js/nav-loader.js" defer></script>
@@ -90,6 +98,7 @@
           src="/assets/images/MRSegmentation.png"
           alt="Multi-level CT segmentation showing vertebral outlines traced across cervical, thoracic, and lumbar regions"
           class="post__figure-img"
+          loading="lazy"
         />
         <figcaption class="post__figure-caption">
           CT segmentation across multiple spinal levels. Each red outline is manually verified slice-by-slice
@@ -131,6 +140,7 @@
           src="/assets/images/pekk-implant-cad-render.png"
           alt="CAD render of the PEKK implant seated in a vertebral corpectomy defect"
           class="post__figure-img"
+          loading="lazy"
         />
         <figcaption class="post__figure-caption">
           CAD model of the PEKK implant geometry seated in the vertebral defect. The porous
