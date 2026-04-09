@@ -63,14 +63,10 @@
     right: 0;
   }
   
-  @media (max-width: 340px) {
-    .main-nav__items {
-      flex-direction: column;
-      gap: 1rem;
-    }
-  
-    .main-nav__link {
-      font-size: 1.6rem;
-    }
+  .main-nav__link {
+    font-size: clamp(1.1rem, calc(-0.4rem + 4.5vw), 2rem);
   }
-  
+
+  .main-nav__items {
+    gap: clamp(0.5rem, calc(-2.4rem + 7.7vw), 3rem);
+  }

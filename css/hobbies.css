@@ -151,6 +151,7 @@ a.hobby__card {
   text-align: center;
   overflow: hidden;
   padding: 0 var(--gutter-normal);
+  padding-top: 4.5rem; /* clears the fixed nav */
 }
 
 /* Each hobby page can pass a different --hero-img variable via inline style,
