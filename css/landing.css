@@ -130,7 +130,7 @@ body {
 .about__content {
     display: flex;
     flex-direction: row;
-    align-items: left;
+    align-items: flex-start;
 }
 
 @media(max-width: 900px) {
@@ -158,34 +158,13 @@ body {
 @media(min-width: 901px) {
     .about__text {
         flex: 0.5 0 35%;
-        
     }
-    
+
     .about__photo-container {
         flex: 1;
         margin: 0 0 0 var(--gutter-huge);
         max-width: 100%;
-
-    .about__photo {
-      max-width: 500px;
-      width: 100%;
-      height: auto;
     }
-    }
-}
-
-
-/* INTRO ANIMATION */
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 

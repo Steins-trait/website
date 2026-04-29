@@ -12,7 +12,7 @@
     font-family: 'Jost';
     font-style: normal;
     font-weight: 400;
-    src: url('/assets/fonts/Jost-Regular.ttf') format('woff');
+    src: url('/assets/fonts/Jost-Regular.ttf') format('truetype');
   }
   
   /* ================================
@@ -300,8 +300,7 @@
 
   .footer__text {
   text-align: center;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
+  width: 100%;
   }
   
   .footer__social-links {
@@ -333,4 +332,46 @@
     height: 2.5rem;
     width: 84px;
     transform: translateY(3px);
+  }
+
+  /* ================================
+     Shared fade-in animation
+  ================================== */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ================================
+     Back-to-top button (shared)
+  ================================== */
+  .back-to-top {
+    position: fixed;
+    bottom: 4rem;
+    right: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5.5rem;
+    width: 5.5rem;
+    background-color: var(--pink);
+    border-radius: 50%;
+    z-index: 10;
+    visibility: hidden;
+    transition: all 0.4s;
+  }
+
+  .back-to-top__image {
+    height: 70%;
+    transition: all 0.3s;
+  }
+
+  .back-to-top__image:hover {
+    transform: scale(1.2);
   }

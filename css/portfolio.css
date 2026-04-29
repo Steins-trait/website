@@ -64,19 +64,6 @@
   opacity: 0;
 }
 
-/* INTRO ANIMATION */
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .main-content {
   flex: 1 0 auto;
 }
@@ -256,6 +243,10 @@
 
 .skills__certifications {
   margin-top: var(--gutter-small);
+}
+
+.skills__certifications a {
+  text-decoration: none;
 }
 
 .skills__certification-cards {
@@ -450,31 +441,6 @@
   to { transform: scale(1); opacity: 1; }
 }
 
-.back-to-top {
-  position: fixed;
-  bottom: 4rem;
-  right: 4rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 5.5rem;
-  width: 5.5rem;
-  background-color: var(--pink);
-  border-radius: 50%;
-  z-index: 10;
-  visibility: hidden;
-  transition: all .4s;
-}
-
-.back-to-top__image {
-  height: 70%;
-  transition: all 0.3s;
-}
-
-.back-to-top__image:hover {
-  transform: scale(1.2);
-}
-
 /* ==========================================
    WORK EXPERIENCE
 ========================================== */
@@ -539,7 +505,7 @@
 .resume__job-title {
   font-size: 2.5rem;
   font-weight: bold;
-  color: var(--accent-color, #e65a22);
+  color: #e65a22;
 }
 
 .resume__meta {
