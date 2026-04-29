@@ -67,6 +67,88 @@
 .main-content {
   flex: 1 0 auto;
 }
+
+/* ==========================================
+   SECTION SUB-NAV (sticky)
+========================================== */
+.section-nav {
+  position: sticky;
+  top: var(--main-nav-height, 45px);
+  z-index: 100;
+  background: #111;
+  border-bottom: 1px solid #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.section-nav__list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin: 0 auto;
+  padding: 0 var(--gutter-medium);
+  max-width: var(--container-max-width);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.section-nav__list::-webkit-scrollbar {
+  display: none;
+}
+
+.section-nav__link {
+  display: inline-block;
+  padding: 1.4rem 0;
+  font-family: 'Jost', sans-serif;
+  font-size: 1.9rem;
+  color: var(--white-1);
+  white-space: nowrap;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.section-nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 100%;
+  height: 2px;
+  background: var(--pink);
+  transition: right 0.3s ease;
+}
+
+.section-nav__link:hover,
+.section-nav__link.is-active {
+  color: var(--pink);
+}
+
+.section-nav__link:hover::after,
+.section-nav__link.is-active::after {
+  right: 0;
+}
+
+@media (max-width: 700px) {
+  .section-nav__list {
+    justify-content: flex-start;
+    padding: 0 var(--gutter-small);
+    gap: 3.2rem;
+  }
+  .section-nav__link {
+    font-size: 1.6rem;
+    padding: 1.7rem 0;
+  }
+}
+
+/* Anchor offset so jumps clear both navs */
+#qualifications,
+#work,
+#work-experience,
+#skills,
+#contact {
+  scroll-margin-top: calc(var(--main-nav-height, 45px) + var(--section-nav-height, 50px));
+}
 /* ==========================================
    WORK SECTION
 ========================================== */

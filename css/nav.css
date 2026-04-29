@@ -1,6 +1,32 @@
 /* --------------------------------------- */
 /* ----- Navigation ----- */
 /* --------------------------------------- */
+.skip-link {
+    position: fixed;
+    top: -100px;
+    left: 1rem;
+    background: var(--pink);
+    color: var(--white);
+    padding: 1rem 2rem;
+    z-index: 1001;
+    border-radius: 0 0 6px 6px;
+    transition: top 0.2s ease;
+    font-family: 'Jost', sans-serif;
+  }
+
+  .skip-link:focus {
+    top: 0;
+    outline: 2px solid var(--white);
+  }
+
+  .main-nav__link.is-active {
+    color: var(--pink);
+  }
+
+  .main-nav__link.is-active::after {
+    right: 0;
+  }
+
 .main-nav {
     background-color: #111;
     padding: 1rem 2rem;
@@ -11,6 +37,34 @@
     left: 0;
     width: 100%;
     z-index: 999;
+  }
+
+  .main-nav__toggle {
+    display: none;
+    background: transparent;
+    border: 0;
+    padding: 0.8rem;
+    cursor: pointer;
+    margin-left: auto;
+  }
+
+  .main-nav__toggle-bar {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: #f0e9f2;
+    margin: 5px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .main-nav.is-open .main-nav__toggle-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .main-nav.is-open .main-nav__toggle-bar:nth-child(2) {
+    opacity: 0;
+  }
+  .main-nav.is-open .main-nav__toggle-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
   }
 
   .main-content {
@@ -63,10 +117,46 @@
     right: 0;
   }
   
-  .main-nav__link {
-    font-size: clamp(1.1rem, calc(-0.4rem + 4.5vw), 2rem);
-  }
+  @media (max-width: 640px) {
+    .main-nav {
+      padding: 1rem 1.5rem;
+    }
 
-  .main-nav__items {
-    gap: clamp(0.5rem, calc(-2.4rem + 7.7vw), 3rem);
+    .main-nav__toggle {
+      display: block;
+    }
+
+    .main-nav__items {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      gap: 0;
+      background: #111;
+      border-bottom: 1px solid #333;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .main-nav.is-open .main-nav__items {
+      max-height: 50vh;
+    }
+
+    .main-nav__item {
+      width: 100%;
+      border-top: 1px solid #222;
+    }
+
+    .main-nav__link {
+      display: block;
+      padding: 1.6rem 2rem;
+      font-size: 1.8rem;
+    }
+
+    .main-nav__link::after {
+      display: none;
+    }
   }

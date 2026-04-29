@@ -20,6 +20,36 @@ const handleMouseDownOnce = () => {
 
 window.addEventListener('keydown', handleFirstTab)
 
+/* -----------------------------------------
+  Section sub-nav active-state scrollspy
+ ---------------------------------------- */
+const sectionNavLinks = document.querySelectorAll('.section-nav__link');
+if (sectionNavLinks.length) {
+  const sectionMap = new Map();
+  sectionNavLinks.forEach(link => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) sectionMap.set(target, link);
+  });
+
+  const setActive = (link) => {
+    sectionNavLinks.forEach(l => l.classList.toggle('is-active', l === link));
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const link = sectionMap.get(entry.target);
+        if (link) setActive(link);
+      }
+    });
+  }, {
+    rootMargin: '-90px 0px -70% 0px',
+    threshold: 0
+  });
+
+  sectionMap.forEach((_, section) => observer.observe(section));
+}
+
 const backToTopButton = document.querySelector(".back-to-top");
 let isBackToTopRendered = false;
 
